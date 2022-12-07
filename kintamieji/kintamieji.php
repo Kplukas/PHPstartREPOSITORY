@@ -137,3 +137,15 @@ if ($trys > 0) {
 }
 echo '<h1 style=color:', $colorV,'>', $viens, '</h1>','<h1 style=color:', $colorD,'>', $du, '</h1>','<h1 style=color:', $colorT,'>', $trys, '</h1>';
 // 8.
+echo '<br>';
+$zvakes = rand(5, 3000);
+if($zvakes <= 1000){
+    $suma = $zvakes;
+    echo 'zvakiu:', $zvakes, ' suma:', $suma;
+} else if($zvakes > 1000 && $zvakes <= 2000){
+    $suma = $zvakes - ($zvakes / 100 * 3);
+    echo 'zvakiu:', $zvakes, ' suma:', $suma;
+} else if($zvakes > 2000){
+    $suma = $zvakes - ($zvakes / 100 * 4);
+    echo 'zvakiu:', $zvakes, ' suma:', $suma;
+}
