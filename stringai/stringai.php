@@ -48,3 +48,8 @@ $h2 = preg_replace('#[aeiou\s]+#i', '', $h);
 $j = "It's a Wonderful Life";
 $j2 = preg_replace('#[aeiou\s]+#i', '', $j);
 echo $h2, '------', $j2;
+// 8.
+echo '<br>';
+$str = 'Star Wars: Episode '.str_repeat(' ', rand(0,5)). rand(1,9) . ' - A New Hope';
+$epi = mb_substr($str, 19, 3);
+echo $str, '--- episode-', $epi;
