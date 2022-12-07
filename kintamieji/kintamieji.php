@@ -195,3 +195,127 @@ if ($c >= 10 && $c <= 90) {
 echo 'skaiciu vidurkis(jeigu skaicius >=10 arba <= 90):', $vidurk2;
 // 10.
 echo '<br>';
+$valand = rand(0, 12);
+$minut = rand(0, 59);
+$sec = rand(0, 59);
+echo 'Laikordis:', $valand, 'h ', $minut, 'min ', $sec, 's .';
+$extra = rand(0, 300);
+echo '<br>';
+echo 'extra sekundes:', $extra;
+echo '<br>';
+if ($extra <= 60) {
+    $sec2 = $sec + $extra;
+    if ($sec2 >= 60) {
+        $sec2 = $sec + $extra -60;
+        $minut2 = $minut + 1;
+        if ($minut2 >= 60) {
+            $minut2 = $minut + 1 - 60;
+            $valand2 = $valand +1;
+        } else {
+            $valand2 = $valand;
+        }
+    } else {
+        $minut2 = $minut;
+        $valand2 = $valand;
+    }
+} else if ($extra > 60 && $extra <= 120) {
+    $sec2 = $sec + $extra;
+    if ($sec2 >= 60 && $sec2 < 120) {
+        $sec2 = $sec + $extra -60;
+        $minut2 = $minut + 1;
+        if ($minut2 >= 60) {
+            $minut2 = $minut + 1 - 60;
+            $valand2 = $valand +1;
+        } else {
+            $valand2 = $valand;
+        }
+    } else if ($sec2 >= 120) {
+        $sec2 = $sec + $extra -120;
+        $minut2 = $minut + 2;
+        if ($minut2 >= 60) {
+            $minut2 = $minut + 1 - 60;
+            $valand2 = $valand +1;
+        } else {
+            $valand2 = $valand;
+        }
+    } else {
+        $minut2 = $minut;
+        $valand2 = $valand;
+    }
+} else if ($extra > 120 && $extra <= 180) {
+    $sec2 = $sec + $extra;
+    if ($sec2 >= 120 && $sec2 < 180) {
+        $sec2 = $sec + $extra -120;
+        $minut2 = $minut + 2;
+        if ($minut2 >= 60) {
+            $minut2 = $minut + 1 - 60;
+            $valand2 = $valand +1;
+        }
+        else {
+            $valand2 = $valand;
+        }
+    } else if ($sec2 >= 180) {
+        $sec2 = $sec + $extra -180;
+        $minut2 = $minut + 3;
+        if ($minut2 >= 60) {
+            $minut2 = $minut + 1 - 60;
+            $valand2 = $valand +1;
+        } else {
+            $valand2 = $valand;
+        }
+    } else {
+        $minut2 = $minut;
+        $valand2 = $valand;
+    }
+} else if ($extra > 180 && $extra <= 240) {
+    $sec2 = $sec + $extra;
+    if ($sec2 >= 180 && $sec2 < 240) {
+        $sec2 = $sec + $extra -180;
+        $minut2 = $minut + 3;
+        if ($minut2 >= 60) {
+            $minut2 = $minut + 1 - 60;
+            $valand2 = $valand +1;
+        }
+        else {
+            $valand2 = $valand;
+        }
+    } else if ($sec2 >= 240) {
+        $sec2 = $sec + $extra -240;
+        $minut2 = $minut + 4;
+        if ($minut2 >= 60) {
+            $minut2 = $minut + 1 - 60;
+            $valand2 = $valand +1;
+        } else {
+            $valand2 = $valand;
+        }
+    } else {
+        $minut2 = $minut;
+        $valand2 = $valand;
+    }
+} else if ($extra > 240 && $extra <= 300) {
+    $sec2 = $sec + $extra;
+    if ($sec2 >= 240 && $sec2 < 300) {
+        $sec2 = $sec + $extra -240;
+        $minut2 = $minut + 4;
+        if ($minut2 >= 60) {
+            $minut2 = $minut + 1 - 60;
+            $valand2 = $valand +1;
+        }
+        else {
+            $valand2 = $valand;
+        }
+    } else if ($sec2 >= 300) {
+        $sec2 = $sec + $extra -300;
+        $minut2 = $minut + 5;
+        if ($minut2 >= 60) {
+            $minut2 = $minut + 1 - 60;
+            $valand2 = $valand +1;
+        } else {
+            $valand2 = $valand;
+        }
+    } else {
+        $minut2 = $minut;
+        $valand2 = $valand;
+    }
+}
+echo 'Laikordis su extra secundemis:', $valand2, 'h ', $minut2, 'min ', $sec2, 's .';
