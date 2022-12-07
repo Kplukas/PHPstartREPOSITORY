@@ -149,3 +149,49 @@ if($zvakes <= 1000){
     $suma = $zvakes - ($zvakes / 100 * 4);
     echo 'zvakiu:', $zvakes, ' suma:', $suma;
 }
+// 9.
+echo '<br>';
+$a = rand(0, 100);
+$b = rand(0, 100);
+$c = rand(0, 100);
+$vidurk = round((($a + $b + $c) / 3), 0);
+echo 'skaiciai:', $a,',',$b,',',$c;
+echo '<br>';
+echo 'vidurkis:', $vidurk;
+echo '<br>';
+if ($a >= 10 && $a <= 90) {
+    if ($b >= 10 && $b <= 90 && ($c >= 10 && $c <= 90)){
+        $vidurk2 = $vidurk;
+    } else if ($b < 10 && ($c >= 10 && $c <= 90) || ($b > 90 && ($c >= 10 && $c <= 90))){
+        $vidurk2 = round((($a + $c) / 2), 0);
+    } else if ($c < 10 && ($b >= 10 && $b <= 90) || ($c > 90 && ($b >= 10 && $b <= 90))){
+        $vidurk2 = round((($a + $b) / 2), 0);
+    } else if ($c < 10 || $c > 90 && ($b < 10 || $b > 90)){
+        $vidurk2 = $a;
+    }
+}
+if ($b >= 10 && $b <= 90) {
+    if ($a >= 10 && $a <= 90 && ($c >= 10 && $c <= 90)){
+        $vidurk2 = $vidurk;
+    } else if ($a < 10 && ($c >= 10 && $c <= 90) || ($a > 90 && ($c >= 10 && $c <= 90))){
+        $vidurk2 = round((($b + $c) / 2), 0);
+    } else if ($c < 10 && ($a >= 10 && $a <= 90) || ($c > 90 && ($a >= 10 && $a <= 90))){
+        $vidurk2 = round((($a + $b) / 2), 0);
+    } else if ($c < 10 || $c > 90 && ($a < 10 || $a > 90)){
+        $vidurk2 = $b;
+    }
+}
+if ($c >= 10 && $c <= 90) {
+    if ($a >= 10 && $a <= 90 && ($b >= 10 && $b <= 90)){
+        $vidurk2 = $vidurk;
+    } else if ($a < 10 && ($b >= 10 && $b <= 90) || ($a > 90 && ($b >= 10 && $b <= 90))){
+        $vidurk2 = round((($c + $b) / 2), 0);
+    } else if ($b < 10 && ($a >= 10 && $a <= 90) || ($b > 90 && ($a >= 10 && $a <= 90))){
+        $vidurk2 = round((($a + $c) / 2), 0);
+    } else if ($a < 10 || $a > 90 && ($b < 10 || $b > 90)){
+        $vidurk2 = $c;
+    }
+}
+echo 'skaiciu vidurkis(jeigu skaicius >=10 arba <= 90):', $vidurk2;
+// 10.
+echo '<br>';
