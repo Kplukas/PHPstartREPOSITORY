@@ -26,3 +26,6 @@ echo $d;
 //6.
 echo '<br>';
 $e = 'An American in Paris';
+$re = '/a/mi';
+echo preg_match_all($re, $e, $matches, PREG_SET_ORDER, 0);
+//7.
