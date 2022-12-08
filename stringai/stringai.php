@@ -51,5 +51,8 @@ echo $h2, '------', $j2;
 // 8.
 echo '<br>';
 $str = 'Star Wars: Episode '.str_repeat(' ', rand(0,5)). rand(1,9) . ' - A New Hope';
-$epi = mb_substr($str, 19, 3);
-echo $str, '--- episode-', $epi;
+preg_match('/(.*)(\d)(.*)/', $str, $epi);
+echo '<pre>';
+echo $str;
+echo '<br>';
+print_r($epi[2]);
