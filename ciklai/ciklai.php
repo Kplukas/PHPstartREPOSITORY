@@ -16,3 +16,23 @@ $str2 = '';
     }
 };
 echo $str2;
+// 2.
+echo '<br>';
+$sk = '';
+$kartai = 1;
+$didesni = 0;
+while ($kartai < 300) {
+    $sk = rand(0, 300);
+    $color = 'black';
+    if ($sk > 275) {
+        $color = 'red';
+    } else {
+        $color = 'black';
+    }
+    if ($sk > 150) {
+    ++$didesni;
+    }
+    echo '<i style=" width: fit-content; block-size: fit-content; color:', $color, '">', $sk, ' <i/>';
+    ++$kartai;
+}
+echo '<h2>Didesnių už 150 yra ', $didesni, '<h2/>';
