@@ -48,6 +48,17 @@ echo '<br>';
 //}
 //echo substr($sk, 0, -1);
 // 4.-------------------------------------------------
+//echo '<br>';
+//$sq = '';
+//$sqwidth = 0;
+//for ($i = 0; $sqwidth < 100; $i++){
+//    $sq .= '*';
+//    $sqwidth = strlen($sq);
+//}
+//for ($sqheight = 0; $sqheight < 100; $sqheight++){
+//    echo '<p style="line-height: 0.1em; letter-spacing: 0.6em;">', $sq, '<p/>';
+//}
+// 5.-------------------------------------------------
 echo '<br>';
 $sq = '';
 $sqwidth = 0;
@@ -56,9 +67,8 @@ for ($i = 0; $sqwidth < 100; $i++){
     $sqwidth = strlen($sq);
 }
 for ($sqheight = 0; $sqheight < 100; $sqheight++){
-    echo '<p style="line-height: 0.1em; letter-spacing: 0.6em;">', $sq, '<p/>';
+    echo '<p style="font-weight: bold; line-height: 0.1em; letter-spacing: 0.7em;">', $sq, '<p/>';
 }
-// 5.-------------------------------------------------
 
 // 6. a)-------------------------------------------------
 // 0-herbas 1-skaicius
