@@ -48,12 +48,21 @@ echo '<br>';
 //}
 //echo substr($sk, 0, -1);
 // 4.-------------------------------------------------
-
+echo '<br>';
+$sq = '';
+$sqwidth = 0;
+for ($i = 0; $sqwidth < 100; $i++){
+    $sq .= '*';
+    $sqwidth = strlen($sq);
+}
+for ($sqheight = 0; $sqheight < 100; $sqheight++){
+    echo '<p style="line-height: 0.1em; letter-spacing: 0.6em;">', $sq, '<p/>';
+}
 // 5.-------------------------------------------------
 
 // 6. a)-------------------------------------------------
 // 0-herbas 1-skaicius
-$sk ='Reiksmes: ';
+//$sk ='Reiksmes: ';
 //do { 
 //    $monet = rand(0,1);
 //    if($monet == 0){
@@ -77,60 +86,60 @@ $sk ='Reiksmes: ';
 //}
 //echo $sk;
 // c)-------------------------------------------------
-$a = false;
-for($i = 0; $a != true; $i++){
-    $monet = rand(0, 1);
-    if($monet == 0){
-    $sk .= 'H';
-    } else {
-    $sk .= 'S';
-    }
-    if (str_contains($sk, 'HHH')) {
-    $a = true;
-    } 
-}
-echo $sk;
-echo '<br>';
-// 7.
-$petras = 0;
-$kazys = 0;
-$petrosuma = 0;
-$kaziosuma = 0;
-for ($i = 0; $i != true; $i++) {
-    if ($petrosuma >= 222 || $kaziosuma >= 222){
-        $i = true;
-    }
-    while ($petrosuma < 222 || $kaziosuma < 222) {
-        $petras = rand(10, 20);
-        $kazys = rand(5, 25);
-        $petrosuma = $petrosuma + $petras;
-        $kaziosuma = $kaziosuma + $kazys;
-        if($petras > $kazys) {
-            echo 'Partiją laimėjo: Petras. ';
-            echo 'Petro taškai:', $petras, ' ';
-            echo 'Kazio taškai:', $kazys;
-            echo '<br>';
-        } else if ($kazys > $petras) {
-            echo 'Partiją laimėjo: Kazys. ';
-            echo 'Petro taškai:', $petras, ' ';
-            echo 'Kazio taškai:', $kazys;
-            echo '<br>';
-        } else {
-            echo 'Lygiosios. ';
-            echo 'Petro taškai:', $petras, ' ';
-            echo 'Kazio taškai:', $kazys;
-            echo '<br>';
-        }
-        if ($petrosuma >= 222 || $kaziosuma >= 222){
-            if ($petrosuma > $kaziosuma) {
-                echo '<br>', 'Laimėjo Petras. ';
-                echo 'Taškai:', $petrosuma;
-                echo '<br>';
-            } else if ($kaziosuma > $petrosuma){
-                echo '<br>', 'Laimėjo Kazys. ';
-                echo 'Taškai:', $kaziosuma;
-                echo '<br>';
-            }
-        }  
-    };
-};
+//$a = false;
+//for($i = 0; $a != true; $i++){
+//    $monet = rand(0, 1);
+//    if($monet == 0){
+//    $sk .= 'H';
+//    } else {
+//    $sk .= 'S';
+//    }
+//    if (str_contains($sk, 'HHH')) {
+//    $a = true;
+//    } 
+//}
+//echo $sk;
+//echo '<br>';
+//// 7.
+//$petras = 0;
+//$kazys = 0;
+//$petrosuma = 0;
+//$kaziosuma = 0;
+//for ($i = 0; $i != true; $i++) {
+//    if ($petrosuma >= 222 || $kaziosuma >= 222){
+//        $i = true;
+//    }
+//    while ($petrosuma < 222 || $kaziosuma < 222) {
+//        $petras = rand(10, 20);
+//        $kazys = rand(5, 25);
+//        $petrosuma = $petrosuma + $petras;
+//        $kaziosuma = $kaziosuma + $kazys;
+//        if($petras > $kazys) {
+//            echo 'Partiją laimėjo: Petras. ';
+//            echo 'Petro taškai:', $petras, ' ';
+//            echo 'Kazio taškai:', $kazys;
+//            echo '<br>';
+//        } else if ($kazys > $petras) {
+//            echo 'Partiją laimėjo: Kazys. ';
+//            echo 'Petro taškai:', $petras, ' ';
+//            echo 'Kazio taškai:', $kazys;
+//            echo '<br>';
+//        } else {
+//            echo 'Lygiosios. ';
+//            echo 'Petro taškai:', $petras, ' ';
+//            echo 'Kazio taškai:', $kazys;
+//            echo '<br>';
+//        }
+//        if ($petrosuma >= 222 || $kaziosuma >= 222){
+//            if ($petrosuma > $kaziosuma) {
+//                echo '<br>', 'Laimėjo Petras. ';
+//                echo 'Taškai:', $petrosuma;
+//                echo '<br>';
+//            } else if ($kaziosuma > $petrosuma){
+//                echo '<br>', 'Laimėjo Kazys. ';
+//                echo 'Taškai:', $kaziosuma;
+//                echo '<br>';
+//            }
+//        }  
+//    };
+//};
