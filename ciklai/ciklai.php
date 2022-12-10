@@ -90,3 +90,30 @@ for($i = 0; $a != true; $i++){
     } 
 }
 echo $sk;
+echo '<br>';
+// 7.
+$petras = rand(10, 20);
+$kazys = rand(5, 25);
+$petrosuma = 0;
+$kaziosuma = 0;
+do {
+    echo 'Petro taškai:', $petras, ' ';
+    echo 'Kazio taškai:', $kazys;
+    echo '<br>';
+    $petrosuma = $petrosuma + $petras;
+    $kaziosuma = $kaziosuma + $kazys;
+    if($petras > $kazys) {
+        echo 'Partiją laimėjo: Petras';
+    } else if ($kazys > $petras) {
+        echo 'Partiją laimėjo: Kazys';
+    } else {
+        echo 'Lygiosios.';
+    }
+    if ($petrosuma >= 222){
+        echo '<br>', 'Laimėjo Petras';
+        echo 'Taškai:', $petrosuma;
+    } else if ($kaziosuma >= 222){
+        echo '<br>', 'Laimėjo Kazys';
+        echo 'Taškai:', $kaziosuma;
+    }
+} while ($petrosuma < 222 || $kaziosuma < 222);
