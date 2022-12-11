@@ -157,20 +157,41 @@ echo '<br>';
 
 // 9.-------------------------------------------------
 // 10.-------------------------------------------------
-$vilgis = 850;
-$mazassmugis = 0;
-$didelissmugis = rand (20, 30);
-$smugiuskaicius = 0;
-$ikalta = 0;
-// a)
-$a = 0;
-while ($a < 5) {
-    $mazassmugis = rand(5, 20);
-    $ikalta = $ikalta + $mazassmugis;
-    $smugiuskaicius = $smugiuskaicius + 1;
-    if($ikalta >= $vilgis) {
-        $a = $a + 1;
-        $ikalta = 0;
-    }
-}
-echo 'Smugiu skaicius: ', $smugiuskaicius, '<br>', 'Ikalti vinys: ', $a ;
+//$vilgis = 850;
+//$mazassmugis = 0;
+//$smugiuskaicius = 0;
+//$ikalta = 0;
+//// a)
+//$a = 0;
+//while ($a < 5) {
+//    $mazassmugis = rand(5, 20);
+//    $ikalta = $ikalta + $mazassmugis;
+//    $smugiuskaicius = $smugiuskaicius + 1;
+//    if($ikalta >= $vilgis) {
+//        $a = $a + 1;
+//        $ikalta = 0;
+//    }
+//}
+//$vid = round((850 * 5 / $smugiuskaicius), 1);
+//echo 'Smugiu skaicius: ', $smugiuskaicius, '<br>', 'Vidutinis smugio gylis: ', $vid, '<br>', 'Ikalti vinys: ', $a;
+//// b)
+//$didelissmugis = 0;
+//$vilgis = 850;
+//$smugiuskaicius = 0;
+//$ikalta = 0;
+//$a = 0;
+//while ($a < 5) {
+//    $b = rand(0, 1);
+//    if ($b = 1){
+//        $smugiuskaicius = $smugiuskaicius + 1;
+//        $didelissmugis = rand(20, 30);
+//        $ikalta = $ikalta + $didelissmugis;
+//        if($ikalta >= $vilgis) {
+//            $a = $a + 1;
+//            $ikalta = 0;
+//        }
+//    } else if ($b = 0) {
+//        $smugiuskaicius = $smugiuskaicius + 1;
+//    }
+//}
+//echo 'Smugiu skaicius: ', $smugiuskaicius;
