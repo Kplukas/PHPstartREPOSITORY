@@ -59,17 +59,17 @@ echo '<br>';
 //    echo '<p style="line-height: 0.1em; letter-spacing: 0.6em;">', $sq, '<p/>';
 //}
 // 5.-------------------------------------------------
-echo '<br>';
-$sq = '';
-$sqwidth = 0;
-for ($i = 0; $sqwidth < 100; $i++){
-    $sq .= '*';
-    $sqwidth = strlen($sq);
-}
-for ($sqheight = 0; $sqheight < 100; $sqheight++){
-    echo '<p style="font-weight: bold; line-height: 0.1em; letter-spacing: 0.7em;">', $sq, '<p/>';
-}
-
+//echo '<br>';
+//$sq = '';
+//$sqwidth = 0;
+//for ($i = 0; $sqwidth < 100; $i++){
+//    $sq .= '*';
+//    $sqwidth = strlen($sq);
+//}
+//for ($sqheight = 0; $sqheight < 100; $sqheight++){
+//    echo '<p style="font-weight: bold; line-height: 0.1em; letter-spacing: 0.7em;">', $sq, '<p/>';
+//}
+//
 // 6. a)-------------------------------------------------
 // 0-herbas 1-skaicius
 //$sk ='Reiksmes: ';
@@ -110,7 +110,7 @@ for ($sqheight = 0; $sqheight < 100; $sqheight++){
 //}
 //echo $sk;
 //echo '<br>';
-//// 7.
+//// 7. -------------------------------------------------
 //$petras = 0;
 //$kazys = 0;
 //$petrosuma = 0;
@@ -153,3 +153,24 @@ for ($sqheight = 0; $sqheight < 100; $sqheight++){
 //        }  
 //    };
 //};
+// 8.-------------------------------------------------
+
+// 9.-------------------------------------------------
+// 10.-------------------------------------------------
+$vilgis = 850;
+$mazassmugis = 0;
+$didelissmugis = rand (20, 30);
+$smugiuskaicius = 0;
+$ikalta = 0;
+// a)
+$a = 0;
+while ($a < 5) {
+    $mazassmugis = rand(5, 20);
+    $ikalta = $ikalta + $mazassmugis;
+    $smugiuskaicius = $smugiuskaicius + 1;
+    if($ikalta >= $vilgis) {
+        $a = $a + 1;
+        $ikalta = 0;
+    }
+}
+echo 'Smugiu skaicius: ', $smugiuskaicius, '<br>', 'Ikalti vinys: ', $a ;
