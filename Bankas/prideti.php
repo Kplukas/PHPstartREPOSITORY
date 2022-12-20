@@ -11,7 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     echo '<pre>';
     print_r($_POST);
     if (isset($_POST['nr'])){
-        if($_POST['nr'] == $arr[$i]){
+        if(number_format($_POST['nr']) == $arr){
             $nr = $arr['nr'];
             $vardas = $arr['vardas'];
             $pavarde = $arr['pavarde'];
