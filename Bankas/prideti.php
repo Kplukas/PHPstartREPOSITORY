@@ -5,33 +5,41 @@ if (!file_exists(__DIR__ . '/data')){
 } else {
     $arr = unserialize(file_get_contents(__DIR__ . '/data'));
 }
+echo '<pre>';
+print_r($arr);
 if ($_SERVER['REQUEST_METHOD'] == 'POST'){
+    echo '<pre>';
+    print_r($_POST);
     if (isset($_POST['nr'])){
-        if($_POST['nr'] == $arr[$naujas]['nr']){
-            $nr = $arr[$naujas]['nr'];
-            $vardas = $arr[$naujas]['vardas'];
-            $pavarde = $arr[$naujas]['pavarde'];
-            $suma = $arr[$naujas]['suma'];
-            $yra = true;
+        if($_POST['nr'] == $arr[$i]){
+            $nr = $arr['nr'];
+            $vardas = $arr['vardas'];
+            $pavarde = $arr['pavarde'];
+            $suma = $arr['suma'];
+            $yra = 1;
         } else {
-            $yra = false;
+            $yra = 0;
         }
     }
-    header('Location: http://localhost/manodarbai/testing/Bankas/prideti.php');
+
     $_SESSION['yra'] = $yra;
     $_SESSION['nr'] = $nr;
     $_SESSION['vardas'] = $vardas;
     $_SESSION['pavarde'] = $pavarde;
     $_SESSION['suma'] = $suma;
+    echo '<pre>';
+    print_r($_SESSION);
+    header('Location: http://localhost/manodarbai/testing/Bankas/prideti.php');
     die;
 }
-if(isset($_SESSION['yra'])){
-    $yra = $_SESSION['yra'];
-    $nr = $_SESSION['nr'];
-    $vardas = $_SESSION['vardas'];
-    $pavarde = $_SESSION['pavarde'];
-    $suma = $_SESSION['suma'];
-}
+$yra = $_SESSION['yra'] ?? 0;
+$nr = $_SESSION['nr'] ?? 'Ieškokite sąskaitos.';
+$vardas = $_SESSION['vardas'] ?? 'Ieškokite sąskaitos.';
+$pavarde = $_SESSION['pavarde'] ?? '';
+$suma = $_SESSION['suma'] ?? 'Ieškokite sąskaitos.';
+
+echo '<pre>';
+print_r($_SESSION);
 unset($_SESSION['vardas']);
 unset($_SESSION['pavarde']);
 unset($_SESSION['suma']);
@@ -52,14 +60,14 @@ unset($_SESSION['nr']);
         <input type="text" id="nr" name="nr">
         <button type="submit">Ieškoti</button>
     </form>
-    <?php if ($yra = true) : ?>
+    <?php if ($yra == 0) : ?>
+        <h2>Įveskite sąskaitos numerį</h2>
+    <?php elseif ($yra == 1) : ?>
         <h2>Sąskaita: <?= $nr ?> </h2>
         <h3>Priklauso: <?= $vardas ?> <?= $pavarde ?> </h3>
         <h2>Likutis: <?= $suma ?></h2>
         <p>Pridėti lėšų +</p>
         <input type="text">
-    <?php else : ?>
-        <h2>Įveskite sąskaitos numerį</h2>
     <?php endif ?>
     <nav>
         <a href="http://localhost/manodarbai/testing/Bankas/saskaitos.php">Sąskaitų sąrašas</a>

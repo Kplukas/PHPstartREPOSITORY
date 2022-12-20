@@ -15,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
         $naujas['asmenskodas'] = $_POST['asmenskodas'];
         $naujas['nr'] = rand(10000, 99999);
         $naujas['suma'] = 0;
-        $arr[] = $naujas;
+        $arr[$naujas['nr']] = $naujas;
         file_put_contents(__DIR__ . '/data', serialize($arr));
     }
     header('Location: http://localhost/manodarbai/testing/Bankas/newsaskaita.php');
