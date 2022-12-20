@@ -1,5 +1,9 @@
 <?php
-
+if (!file_exists(__DIR__ . '/data')){
+    $arr = [];
+} else {
+    $arr = unserialize(file_get_contents(__DIR__ . '/data'));
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -11,5 +15,10 @@
 </head>
 <body>
     
+    <nav>
+        <a href="http://localhost/manodarbai/testing/Bankas/saskaitos.php">Sąskaitų sąrašas</a>
+        <a href="http://localhost/manodarbai/testing/Bankas/newsaskaita.php">Nauja sąskaita</a>
+        <a href="http://localhost/manodarbai/testing/Bankas/prideti.php">Papildyti sąskaita</a>
+    </nav>
 </body>
 </html>
