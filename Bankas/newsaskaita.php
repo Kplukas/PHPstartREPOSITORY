@@ -1,9 +1,22 @@
 <?php
 session_start();
+if (!file_exists(__DIR__ . '/data')){
+    $arr = [];
+} else {
+    $arr = unserialize(file_get_contents(__DIR__ . '/data'));
+}
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     if( isset($_POST['vardas']) && isset($_POST['pavarde']) && isset($_POST['asmenskodas'])){
         $sukurta = 'Sukurta.';
+        $naujas = [];
+        $naujas['vardas'] = $_POST['vardas'];
+        $naujas['pavarde'] = $_POST['pavarde'];
+        $naujas['asmenskodas'] = $_POST['asmenskodas'];
+        $naujas['nr'] = rand(10000, 99999);
+        $naujas['suma'] = 0;
+        $arr[] = $naujas;
+        file_put_contents(__DIR__ . '/data', serialize($arr));
     }
     header('Location: http://localhost/manodarbai/testing/Bankas/newsaskaita.php');
     $_SESSION['sukurta'] = $sukurta;
@@ -31,5 +44,10 @@ unset($_SESSION['sukurta']);
         <input type="text" id="asmenskodas" name="asmenskodas">
         <button type="submit">sukurti</button>
     </form>
+    <nav>
+        <a href="http://localhost/manodarbai/testing/Bankas/saskaitos.php">Sąskaitų sąrašas</a>
+        <a href="http://localhost/manodarbai/testing/Bankas/prideti.php">Papildyti sąskaita</a>
+        <a href="http://localhost/manodarbai/testing/Bankas/atimti.php">Sumažinti sąskaita</a>
+    </nav>
 </body>
 </html>
