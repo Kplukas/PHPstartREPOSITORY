@@ -10,9 +10,12 @@
     <ul>
         <?php foreach (unserialize(file_get_contents(__DIR__ . '/data')) as $user) : ?>
             <li>
-                <span><?= $user['vardas'] ?> <?= $user['pavarde'] ?> Sąskaitos kodas: <?= $user['nr'] ?></span>
+                <span><?= $user['vardas'] ?> <?= $user['pavarde'] ?> Sąskaitos kodas: <?= $user['nr'] ?> Likutis: <?= $user['suma'] ?></span>
                 <form action="http://localhost/manodarbai/testing/Bank/trinti.php?id=<?= $user['nr'] ?>" method="post">
                     <button type="submit">Delete</button>
+                </form>
+                <form action="http://localhost/manodarbai/testing/Bank/saskaita.php?nr=<?= $user['nr'] ?>" method="post">
+                    <button type="submit">Apžiūrėti sąskaitą.</button>
                 </form>
             </li>
         <?php endforeach ?>
