@@ -33,6 +33,10 @@ unset($_SESSION['sukurta']);
     <title>Nauja sąskaita</title>
 </head>
 <body>
+    <nav>
+        <a href="http://localhost/manodarbai/testing/Bank/saskaitos.php">Sąskaitų sąrašas</a>
+        <a href="http://localhost/manodarbai/testing/Bank/newsaskaita.php">Naujos sąskaitos kūrimas</a>
+    </nav>
     <h2><?= $sukurta ?></h2>
     <form action="http://localhost/manodarbai/testing/Bank/newsaskaita.php" method="post">
         <label for="vardas">Vardas:</label>

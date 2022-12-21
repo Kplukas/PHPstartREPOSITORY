@@ -13,6 +13,10 @@ file_put_contents(__DIR__ . '/data', serialize($users));
     <title>Sąskaita Nr.: <?= $nr ?></title>
 </head>
 <body>
+    <nav>
+        <a href="http://localhost/manodarbai/testing/Bank/saskaitos.php">Sąskaitų sąrašas</a>
+        <a href="http://localhost/manodarbai/testing/Bank/newsaskaita.php">Naujos sąskaitos kūrimas</a>
+    </nav>
     <h2><?= $user['vardas'] ?> <?= $user['pavarde'] ?></h2>
     <h3>Likutis: <?= $user['suma'] ?></h3>
     <form action="http://localhost/manodarbai/testing/Bank/add.php">

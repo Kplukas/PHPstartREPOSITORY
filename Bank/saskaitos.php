@@ -4,9 +4,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Banko sąskaitos</title>
 </head>
 <body>
+    <nav>
+        <a href="http://localhost/manodarbai/testing/Bank/saskaitos.php">Sąskaitų sąrašas</a>
+        <a href="http://localhost/manodarbai/testing/Bank/newsaskaita.php">Naujos sąskaitos kūrimas</a>
+    </nav>
     <ul>
         <?php foreach (unserialize(file_get_contents(__DIR__ . '/data')) as $user) : ?>
             <li>
