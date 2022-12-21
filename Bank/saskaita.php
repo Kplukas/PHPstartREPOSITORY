@@ -2,20 +2,6 @@
 $nr = $_GET['nr'];
 $users = unserialize(file_get_contents(__DIR__ . '/data'));
 $user = $users[$nr];
-echo '<pre>';
-print_r($user);
-session_start();
-if ($_SERVER['REQUEST_METHOD'] == 'POST'){
-    if (isset($_POST['plus'])){
-        $_SESSION['plus'] = $_POST['plus'];
-        die;
-    }
-}
-$plus = 0;
-if(isset($_SESSION['plus'])){
-    $plus = $_SESSION['plus'];
-    unset($_SESSION['plus']);
-}
 file_put_contents(__DIR__ . '/data', serialize($users));
 ?>
 <!DOCTYPE html>
@@ -34,6 +20,12 @@ file_put_contents(__DIR__ . '/data', serialize($users));
         <input type="text" name="plus">
         <input type="hidden" name="nr" value="<?= $nr ?>">
         <button type="submit">Pridėti</button>
+    </form>
+    <form action="http://localhost/manodarbai/testing/Bank/minus.php">
+        <label for="suma">Minusuojama suma:</label>
+        <input type="text" name="minus">
+        <input type="hidden" name="nr" value="<?= $nr ?>">
+        <button type="submit">Sumažinti</button>
     </form>
 </body>
 </html>

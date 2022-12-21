@@ -3,10 +3,10 @@ echo '<pre>';
 print_r($_GET);
 $users = unserialize(file_get_contents(__DIR__ . '/data'));
 $id = $_GET['nr'];
-$plus = (int)$_GET['plus'];
+$minus = (int)$_GET['minus'];
 foreach ($users as $user){
     if($user == $users[$id]){
-        $users[$id]['suma'] = $users[$id]['suma'] + (int)$plus;
+        $users[$id]['suma'] = $users[$id]['suma'] - (int)$minus;
         break;
     }
 }
