@@ -11,17 +11,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     echo '<pre>';
     print_r($_POST);
     if (isset($_POST['nr'])){
-        if(number_format($_POST['nr']) == $arr){
-            $nr = $arr['nr'];
-            $vardas = $arr['vardas'];
-            $pavarde = $arr['pavarde'];
-            $suma = $arr['suma'];
-            $yra = 1;
-        } else {
+        foreach ($arr as $user) {
+            if($_POST['nr'] == $user['nr']){
+                $nr = $user['nr'];
+                $vardas = $user['vardas'];
+                $pavarde = $user['pavarde'];
+                $suma = $user['suma'];
+                $yra = 1;
+            } else {
             $yra = 0;
+            }
         }
     }
-
     $_SESSION['yra'] = $yra;
     $_SESSION['nr'] = $nr;
     $_SESSION['vardas'] = $vardas;
@@ -32,11 +33,22 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     header('Location: http://localhost/manodarbai/testing/Bankas/prideti.php');
     die;
 }
+
 $yra = $_SESSION['yra'] ?? 0;
 $nr = $_SESSION['nr'] ?? 'Ieškokite sąskaitos.';
 $vardas = $_SESSION['vardas'] ?? 'Ieškokite sąskaitos.';
 $pavarde = $_SESSION['pavarde'] ?? '';
 $suma = $_SESSION['suma'] ?? 'Ieškokite sąskaitos.';
+if ($_SERVER['REQUEST_METHOD'] == 'POST'){
+    if (isset($_POST['prideti'])){
+        $_SESSION['plius'] = $_POST['prideti'];
+        foreach ($arr as $user) {
+            if ($user['nr'] == $nr){
+                $user['suma'] = $user['suma'] + $_SESSION['plius'];
+            }
+        }
+    }
+}
 
 echo '<pre>';
 print_r($_SESSION);
@@ -66,8 +78,11 @@ unset($_SESSION['nr']);
         <h2>Sąskaita: <?= $nr ?> </h2>
         <h3>Priklauso: <?= $vardas ?> <?= $pavarde ?> </h3>
         <h2>Likutis: <?= $suma ?></h2>
-        <p>Pridėti lėšų +</p>
-        <input type="text">
+        <form action="http://localhost/manodarbai/testing/Bankas/prideti.php" method="post">
+            <label for="suma" id="prideti" name="prideti">Pridėti prie sąskaitos</label>
+            <input type="text">
+            <button type="submit">Pridėti</button>  
+        </form>
     <?php endif ?>
     <nav>
         <a href="http://localhost/manodarbai/testing/Bankas/saskaitos.php">Sąskaitų sąrašas</a>
