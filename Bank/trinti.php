@@ -13,5 +13,5 @@ foreach ($users as $user){
 
 file_put_contents(__DIR__ . '/data', serialize($users));
 
-header('Location: http://localhost/manodarbai/testing/Bank/saskaitos.php');
+header('Location: http://localhost/manodarbai/testing/Bank/saskaitos.php?deleted=yes');
 

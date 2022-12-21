@@ -13,6 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
         $naujas['pavarde'] = $_POST['pavarde'];
         $naujas['asmenskodas'] = $_POST['asmenskodas'];
         $naujas['nr'] = rand(10000, 99999);
+        $naujas['kodas'] = 'LT'.'01'.'55555'.rand(10000000000,99999999999);
         $naujas['suma'] = 0;
         $arr[$naujas['nr']] = $naujas;
         file_put_contents(__DIR__ . '/data', serialize($arr));

@@ -31,5 +31,8 @@ file_put_contents(__DIR__ . '/data', serialize($users));
         <input type="hidden" name="nr" value="<?= $nr ?>">
         <button type="submit">Sumažinti</button>
     </form>
+    <?php if (isset($_GET['error'])) :?>
+        <h3>Sąskaitos likutis negali būti mažesnis už 0 eur.</h3>
+    <?php endif ?>
 </body>
 </html>
