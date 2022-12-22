@@ -1,10 +1,14 @@
 body {
-    background-color: white;
+    background-image: url('./img/bg.jpg');
+    background-size: cover;
     margin: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI',
+        Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue',
+        sans-serif;
 }
 header {
     display: inline-block;
-    background-color: midnightblue;
+    background-color: rgba(25, 25, 112, 0.5);
     width: 100%;
     height: 60px;
     justify-content: center;
@@ -18,6 +22,17 @@ header {
 }
 main {
     margin: 20px;
+    background-color: rgba(255, 255, 255, 0.5);
+    height: 70vh;
+    border-radius: 20px;
+}
+footer {
+    width: 100%;
+    height: 20vh;
+    background-color: rgba(25, 25, 112, 0.5);
+}
+.block {
+    display: block;
 }
 
 /* NAV */
@@ -36,6 +51,7 @@ main {
     font-size: 15px;
     font-weight: bold;
     color: white;
+    transition: 0.3s;
 }
 .menu-link:hover {
     margin: 5px;
@@ -44,4 +60,65 @@ main {
     border: 2px solid black;
     color: black;
     background-color: white;
+}
+/* New saskaita */
+.skurimas {
+    text-align: center;
+    justify-content: center;
+    margin: 10px;
+    font-size: 30px;
+    text-transform: uppercase;
+    color: white;
+    border-bottom: 2px solid white;
+}
+.msk {
+    justify-content: center;
+    align-items: center;
+    border-bottom: 3px solid white;
+    border-top: 3px solid white;
+    border-radius: 20px;
+}
+.form-holder1 {
+    display: grid;
+    align-items: center;
+    justify-content: center;
+}
+.form {
+    padding: 20px;
+    font-size: 20px;
+    font-weight: bold;
+}
+.label1 {
+    font-size: 20px;
+    color: midnightblue;
+    border-top: 2px solid white;
+}
+.input1 {
+    background-color: rgba(255, 255, 255, 0.5);
+    color: black;
+    font-size: 18px;
+    line-height: 2em;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-radius: 10px;
+}
+.btn1 {
+    background-color: rgba(25, 25, 112, 0.51);
+    margin: 10px;
+    padding: 0.5em 0.75em;
+    border: 3px solid white;
+    border-radius: 5px;
+    text-transform: uppercase;
+    font-size: 15px;
+    font-weight: bold;
+    color: white;
+    transition: 0.3s;
+}
+.btn1:hover {
+    font-size: 16px;
+    border: 3px solid black;
+    border-radius: 5px;
+    color: black;
+    background-color: white;
+    cursor: pointer;
 }

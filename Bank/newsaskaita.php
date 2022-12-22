@@ -53,20 +53,26 @@ unset($_SESSION['sukurta']);
             <a class ="menu-link"  href="http://localhost/manodarbai/testing/Bank/newsaskaita.php">Naujos sąskaitos kūrimas</a>
         </nav>
     </header>
-    <main>
-        <h2><?= $sukurta ?></h2>
-    <form action="http://localhost/manodarbai/testing/Bank/newsaskaita.php" method="post">
-        <label for="vardas">Vardas:</label>
-        <input type="text" id="vardas" name="vardas" minlength="4" required>
-        <label for="pavarde">Pavarde:</label>
-        <input type="text" id="pavarde" name="pavarde" minlength="4" required>
-        <label for="asmenskodas">Asmens kodas:</label>
-        <input type="text" id="asmenskodas" name="asmenskodas" minlength="11" required>
-        <button type="submit">sukurti</button>
-    </form>
+    <main class="msk">
+        <h2 class="skurimas"><?= $sukurta ?></h2>
+        <form class="form-holder1" action="http://localhost/manodarbai/testing/Bank/newsaskaita.php" method="post">
+            <div class="form">
+                <label class="block label1" for="vardas">Kliento vardas:</label>
+                <input class="block input1"  type="text" id="vardas" name="vardas" minlength="4" required>
+            </div>
+            <div class="form">
+                <label class="block label1"  for="pavarde">Kliento pavardė:</label>
+                <input class="block input1"  type="text" id="pavarde" name="pavarde" minlength="4" required>
+            </div>
+            <div class="form">
+                <label class="block label1"  for="asmenskodas">Asmens kodas:</label>
+                <input class="block input1"  type="text" id="asmenskodas" name="asmenskodas" minlength="11" required>
+            </div>
+            <button class="block btn1"  type="submit">sukurti</button>
+        </form>
     </main>
     <footer>
-        
+
     </footer>
 </body>
 </html>
