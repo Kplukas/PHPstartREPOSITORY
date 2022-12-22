@@ -33,7 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     $_SESSION['sukurta'] = $sukurta;
     die;
 }
-$sukurta = $_SESSION['sukurta'] ?? 'Sukurkite saskaita.';
+$sukurta = $_SESSION['sukurta'] ?? 'Sukurkite sąskaitą.';
 unset($_SESSION['sukurta']);
 ?>
 <!DOCTYPE html>
@@ -43,13 +43,18 @@ unset($_SESSION['sukurta']);
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nauja sąskaita</title>
+    <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-    <nav>
-        <a href="http://localhost/manodarbai/testing/Bank/saskaitos.php">Sąskaitų sąrašas</a>
-        <a href="http://localhost/manodarbai/testing/Bank/newsaskaita.php">Naujos sąskaitos kūrimas</a>
-    </nav>
-    <h2><?= $sukurta ?></h2>
+    <header>
+        <img class="bank" src="./img/bank1.png" alt="bank">
+        <nav class="menu">
+            <a class ="menu-link" href="http://localhost/manodarbai/testing/Bank/saskaitos.php">Sąskaitų sąrašas</a>
+            <a class ="menu-link"  href="http://localhost/manodarbai/testing/Bank/newsaskaita.php">Naujos sąskaitos kūrimas</a>
+        </nav>
+    </header>
+    <main>
+        <h2><?= $sukurta ?></h2>
     <form action="http://localhost/manodarbai/testing/Bank/newsaskaita.php" method="post">
         <label for="vardas">Vardas:</label>
         <input type="text" id="vardas" name="vardas" minlength="4" required>
@@ -59,5 +64,9 @@ unset($_SESSION['sukurta']);
         <input type="text" id="asmenskodas" name="asmenskodas" minlength="11" required>
         <button type="submit">sukurti</button>
     </form>
+    </main>
+    <footer>
+        
+    </footer>
 </body>
 </html>
