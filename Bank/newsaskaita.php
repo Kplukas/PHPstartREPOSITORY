@@ -7,16 +7,27 @@ if (!file_exists(__DIR__ . '/data')){
 }
 if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     if( isset($_POST['vardas']) && isset($_POST['pavarde']) && isset($_POST['asmenskodas'])){
-        $sukurta = 'Sukurta.';
-        $naujas = [];
-        $naujas['vardas'] = $_POST['vardas'];
-        $naujas['pavarde'] = $_POST['pavarde'];
-        $naujas['asmenskodas'] = $_POST['asmenskodas'];
-        $naujas['nr'] = rand(10000, 99999);
-        $naujas['kodas'] = 'LT'.'01'.'55555'.rand(10000000000,99999999999);
-        $naujas['suma'] = 0;
-        $arr[$naujas['nr']] = $naujas;
-        file_put_contents(__DIR__ . '/data', serialize($arr));
+        foreach ($arr as $user) {
+            if ($_POST['asmenskodas'] == $user['asmenskodas']){
+                $sukurta = 'Šis asmens kodas jau naudojamas.';
+                $error = 1;
+                break;
+            } else {
+                $error = 0;
+            }
+        }
+        if ($error == 0) {
+            $sukurta = 'Sukurta.';
+            $naujas = [];
+            $naujas['vardas'] = $_POST['vardas'];
+            $naujas['pavarde'] = $_POST['pavarde'];
+            $naujas['asmenskodas'] = $_POST['asmenskodas'];
+            $naujas['nr'] = rand(10000, 99999);
+            $naujas['kodas'] = 'LT'.'01'.'55555'.rand(10000000000,99999999999);
+            $naujas['suma'] = 0;
+            $arr[$naujas['nr']] = $naujas;
+            file_put_contents(__DIR__ . '/data', serialize($arr));
+        }      
     }
     header('Location: http://localhost/manodarbai/testing/Bank/newsaskaita.php');
     $_SESSION['sukurta'] = $sukurta;
@@ -41,11 +52,11 @@ unset($_SESSION['sukurta']);
     <h2><?= $sukurta ?></h2>
     <form action="http://localhost/manodarbai/testing/Bank/newsaskaita.php" method="post">
         <label for="vardas">Vardas:</label>
-        <input type="text" id="vardas" name="vardas">
+        <input type="text" id="vardas" name="vardas" minlength="4" required>
         <label for="pavarde">Pavarde:</label>
-        <input type="text" id="pavarde" name="pavarde">
+        <input type="text" id="pavarde" name="pavarde" minlength="4" required>
         <label for="asmenskodas">Asmens kodas:</label>
-        <input type="text" id="asmenskodas" name="asmenskodas">
+        <input type="text" id="asmenskodas" name="asmenskodas" minlength="11" required>
         <button type="submit">sukurti</button>
     </form>
 </body>
