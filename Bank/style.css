@@ -19,6 +19,12 @@ header {
     display: inline;
     float: left;
     margin: 10px;
+    margin-left: 20px;
+}
+.clock {
+    display: inline;
+    float: left;
+    margin: 15px;
 }
 main {
     margin: 20px;

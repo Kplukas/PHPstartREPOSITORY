@@ -48,6 +48,7 @@ unset($_SESSION['sukurta']);
 <body>
     <header>
         <img class="bank" src="./img/bank1.png" alt="bank">
+        <iframe class="clock" src="https://free.timeanddate.com/clock/i8n7u4iy/n529/tllt22/fn15/fcfff/tct/pct/ftb/bas2/bacfff/pa5" frameborder="0" width="65" height="30" allowtransparency="true"></iframe>
         <nav class="menu">
             <a class ="menu-link" href="http://localhost/manodarbai/testing/Bank/saskaitos.php">Sąskaitų sąrašas</a>
             <a class ="menu-link"  href="http://localhost/manodarbai/testing/Bank/newsaskaita.php">Naujos sąskaitos kūrimas</a>
@@ -76,7 +77,7 @@ unset($_SESSION['sukurta']);
 
         </div>
         <div>
-            <iframe src="https://free.timeanddate.com/clock/i8n7u4iy/n529/tllt22/fn15/fcfff/tct/pct/ftb/bas2/bacfff/pa5" frameborder="0" width="65" height="30" allowtransparency="true"></iframe>
+            
         </div>
     </footer>
 </body>
