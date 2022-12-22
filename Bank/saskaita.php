@@ -16,6 +16,7 @@ file_put_contents(__DIR__ . '/data', serialize($users));
 <body>
     <header>
         <img class="bank" src="./img/bank1.png" alt="bank">
+        <iframe class="clock" src="https://free.timeanddate.com/clock/i8n7u4iy/n529/tllt22/fn15/fcfff/tct/pct/ftb/bas2/bacfff/pa5" frameborder="0" width="65" height="30" allowtransparency="true"></iframe>
         <nav class="menu">
             <a class ="menu-link" href="http://localhost/manodarbai/testing/Bank/saskaitos.php">Sąskaitų sąrašas</a>
             <a class ="menu-link"  href="http://localhost/manodarbai/testing/Bank/newsaskaita.php">Naujos sąskaitos kūrimas</a>
@@ -41,7 +42,15 @@ file_put_contents(__DIR__ . '/data', serialize($users));
         <?php endif ?>
     </main>
     <footer>
-        
+        <div class="div1">
+            <h2 class="h-citata">Dienos citata:</h2>
+            <p class="citata">Jeigu bankas ne mūsų - tai ne bankas.</p>
+        </div>
+        <div class="div2">
+            <h2 class="citata">Darbo laikas:</h2>
+            <p class="citata">I-V: 8:00-19:00</p>
+            <p class="citata">VI-VII: 6:00-24:00</p>
+        </div>
     </footer>
 </body>
 </html>
