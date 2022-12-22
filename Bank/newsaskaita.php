@@ -72,7 +72,12 @@ unset($_SESSION['sukurta']);
         </form>
     </main>
     <footer>
+        <div>
 
+        </div>
+        <div>
+            <iframe src="https://free.timeanddate.com/clock/i8n7u4iy/n529/tllt22/fn15/fcfff/tct/pct/ftb/bas2/bacfff/pa5" frameborder="0" width="65" height="30" allowtransparency="true"></iframe>
+        </div>
     </footer>
 </body>
 </html>

@@ -89,6 +89,7 @@ footer {
     font-weight: bold;
 }
 .label1 {
+    margin-left: 3px;
     font-size: 20px;
     color: midnightblue;
     border-top: 2px solid white;
