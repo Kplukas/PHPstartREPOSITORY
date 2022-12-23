@@ -46,7 +46,7 @@ if (file_exists(__DIR__.'/data')) {
                     <li  class="list-item">
                         <h4 class="list-name"><?= $user['vardas'] ?> <?= $user['pavarde'] ?></h4>
                         <p class="list-iban"><strong>IBAN:</strong> <?= $user['kodas'] ?></p>
-                        <p class="list-iban" style="display: inline; float: left;"><strong>LĖŠOS:</strong> <p class="list-suma"><?= $user['suma'] ?></p></p>
+                        <p class="list-iban" style="display: inline; float: left;"><strong>LĖŠOS:</strong> <p class="list-suma"><?= $user['suma'] ?> &euro;</p></p>
                         <?php if ($user['suma'] == 0) : ?>
                         <form action="http://localhost/manodarbai/testing/Bank/trinti.php?id=<?= $user['nr'] ?>" method="post">
                             <button type="submit" class="btn-list">Ištrinti sąskaitą</button>

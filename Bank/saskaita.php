@@ -23,23 +23,26 @@ file_put_contents(__DIR__ . '/data', serialize($users));
         </nav>
     </header>
     <main>
-        <h2><?= $user['vardas'] ?> <?= $user['pavarde'] ?></h2>
-        <h3>Likutis: <?= $user['suma'] ?></h3>
-        <form action="http://localhost/manodarbai/testing/Bank/add.php">
-            <label for="suma">Pridedama suma:</label>
-            <input type="text" name="plus">
-            <input type="hidden" name="nr" value="<?= $nr ?>">
-            <button type="submit">Pridėti</button>
-        </form>
-        <form action="http://localhost/manodarbai/testing/Bank/minus.php">
-            <label for="suma">Minusuojama suma:</label>
-            <input type="text" name="minus">
-            <input type="hidden" name="nr" value="<?= $nr ?>">
-            <button type="submit">Sumažinti</button>
-        </form>
-        <?php if (isset($_GET['error'])) :?>
-            <h3>Sąskaitos likutis negali būti mažesnis už 0 eur.</h3>
-        <?php endif ?>
+        <h2 class="useris-saskaita"><?= $user['kodas'] ?></h2>
+        <div class="useris-col1">
+            <h3 class="useris"><?= $user['vardas'] ?> <?= $user['pavarde'] ?></h3>
+            <h3 class="useris">Lėšos:     <span class="useris-suma"><?= $user['suma'] ?> &euro;</span></h3>
+            <form class="useris" action="http://localhost/manodarbai/testing/Bank/add.php">
+                <label for="suma">Pridedama suma:</label>
+                <input class="input-user" type="text" name="plus">
+                <input type="hidden" name="nr" value="<?= $nr ?>">
+                <button type="submit" class="btn-user">Pridėti</button>
+            </form>
+            <form class="useris" action="http://localhost/manodarbai/testing/Bank/minus.php">
+                <label for="suma">Minusuojama suma:</label>
+                <input class="input-user" type="text" name="minus">
+                <input type="hidden" name="nr" value="<?= $nr ?>">
+                <button type="submit" class="btn-user">Sumažinti</button>
+            </form>
+            <?php if (isset($_GET['error'])) :?>
+                <h3>Sąskaitos likutis negali būti mažesnis už 0 eur.</h3>
+            <?php endif ?>
+        </div>
     </main>
     <footer>
         <div class="div1">
