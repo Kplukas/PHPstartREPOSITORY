@@ -31,35 +31,41 @@ if (file_exists(__DIR__.'/data')) {
             <a class ="menu-link"  href="http://localhost/manodarbai/testing/Bank/newsaskaita.php">Naujos sąskaitos kūrimas</a>
         </nav>
     </header>
-    <main>
-        <?php if (isset($_GET['deleted'])) : ?>
-            <h2>Sąskaita <?= $_GET['sk']?> ištrinta</h2>
-            <h4>Ištrintas vartotojas: <?= $_GET['v']?> <?= $_GET['p']?>. *********<?= $_GET['k']?></h4>
-        <?php endif ?>
-        <?php if ($error == 0) : ?>
-        <ul>
-            <?php foreach (unserialize(file_get_contents(__DIR__ . '/data')) as $user) : ?>
-                <li>
-                    <span><?= $user['vardas'] ?> <?= $user['pavarde'] ?> IBAN: <?= $user['kodas'] ?> Likutis: <?= $user['suma'] ?></span>
-                    <?php if ($user['suma'] == 0) : ?>
-                    <form action="http://localhost/manodarbai/testing/Bank/trinti.php?id=<?= $user['nr'] ?>" method="post">
-                        <button type="submit">Delete</button>
-                    </form>
-                    <?php else : ?>
-                        <button type="button" disabled>Delete</button>
-                        <span>Sąskaitos trinti negalima (yra lėšų)</span>
-                    <?php endif ?>
-                    <form action="http://localhost/manodarbai/testing/Bank/saskaita.php?nr=<?= $user['nr'] ?>" method="post">
-                        <button type="submit">Apžiūrėti sąskaitą.</button>
-                    </form>
-                </li>
-            <?php endforeach ?>
-        </ul>
-        <?php elseif ($error == 1) : ?>
-            <h2 class="nera">Aktyvių sąskaitų nėra.</h2>
-            <p>Keliaukite į <a href="http://localhost/manodarbai/testing/Bank/newsaskaita.php">Naujos sąskaitos kūrimas</a> naujos sąskaitos sukūrimui.</p>
-        <?php endif ?>
-    </main>
+    <div style="display: flex; justify-content: center;">
+        <main style="width: fit-content; display: inline-block;">
+            <?php if (isset($_GET['deleted'])) : ?>
+                <div class="list-istrinta">
+                    <h2>Sąskaita <?= $_GET['sk']?> ištrinta</h2>
+                    <h4>Ištrintas vartotojas: <?= $_GET['v']?> <?= $_GET['p']?>. *********<?= $_GET['k']?></h4>
+                </div>
+            <?php endif ?>
+            <?php if ($error == 0) : ?>
+            <h2 class="nera">Aktyvios sąskaitos:</h2>
+            <ul class="list">
+                <?php foreach (unserialize(file_get_contents(__DIR__ . '/data')) as $user) : ?>
+                    <li  class="list-item">
+                        <h4 class="list-name"><?= $user['vardas'] ?> <?= $user['pavarde'] ?></h4>
+                        <p class="list-iban"><strong>IBAN:</strong> <?= $user['kodas'] ?></p>
+                        <p class="list-iban" style="display: inline; float: left;"><strong>LĖŠOS:</strong> <p class="list-suma"><?= $user['suma'] ?></p></p>
+                        <?php if ($user['suma'] == 0) : ?>
+                        <form action="http://localhost/manodarbai/testing/Bank/trinti.php?id=<?= $user['nr'] ?>" method="post">
+                            <button type="submit" class="btn-list">Ištrinti sąskaitą</button>
+                        </form>
+                        <?php else : ?>
+                            <button type="button" disabled class="btn-list" style="color: red;">Ištrinti sąskaitą <span style="font-size: 10px; color: black;">(yra lėšų)</span></button>
+                        <?php endif ?>
+                        <form action="http://localhost/manodarbai/testing/Bank/saskaita.php?nr=<?= $user['nr'] ?>" method="post">
+                            <button type="submit" class="btn-list">Apžiūrėti sąskaitą.</button>
+                        </form>
+                    </li>
+                <?php endforeach ?>
+            </ul>
+            <?php elseif ($error == 1) : ?>
+                <h2 class="nera">Aktyvių sąskaitų nėra.</h2>
+                <p class="nera-p">Keliaukite į <a class="nera-a" href="http://localhost/manodarbai/testing/Bank/newsaskaita.php">Naujos sąskaitos kūrimas</a> naujos sąskaitos sukūrimui.</p>
+            <?php endif ?>
+        </main>
+    </div>
     <footer>
         <div class="div1">
             <h2 class="h-citata">Dienos citata:</h2>

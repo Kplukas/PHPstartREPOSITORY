@@ -29,7 +29,7 @@ header {
 main {
     margin: 20px;
     background-color: rgba(255, 255, 255, 0.5);
-    height: 70vh;
+    min-height: 70vh;
     border-radius: 20px;
 }
 .block {
@@ -158,8 +158,85 @@ footer {
     cursor: pointer;
 }
 /* Saskaitos ------------------------------------------------------------------------------------*/
-h2 .nera {
+.nera {
     color: white;
     text-decoration: underline;
-    font-size: 25px;
+    font-size: 35px;
+    margin: 30px;
+    padding: 5px;
+    border: 2px solid midnightblue;
+    background-color: rgba(25, 25, 112, 0.5);
+    border-radius: 5px;
+    text-align: center;
+}
+.nera-p {
+    color: midnightblue;
+    font-size: 23px;
+    font-weight: bold;
+    margin-left: 35px;
+    margin-right: 10px;
+}
+.nera-a {
+    text-transform: uppercase;
+    font-size: 30px;
+    font-weight: bold;
+    color: white;
+}
+.list {
+    padding: 15px;
+    margin-left: 15px;
+    margin-right: 15px;
+    border: 2px solid midnightblue;
+    border-radius: 5px;
+    background-color: rgba(25, 25, 112, 0.5);
+    min-height: calc(70vh - 170px);
+    width: fit-content;
+}
+.list-item {
+    display: inline-block;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.5);
+    margin: 10px;
+    width: 320px;
+}
+.list-name {
+    font-size: 20px;
+    text-transform: uppercase;
+}
+.list-iban {
+    font-size: 15px;
+}
+.list-suma {
+    background-color: white;
+    display: inline;
+    float: right;
+    padding-left: 10px;
+    padding-right: 10px;
+    width: 100px;
+    text-align: right;
+}
+.btn-list {
+    display: block;
+    width: 300px;
+    align-self: center;
+    line-height: 2em;
+    background-color: rgba(255, 255, 255, 0.498);
+    color: black;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin: 5px;
+    border: 3px solid midnightblue;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.btn-list:hover {
+    background-color: white;
+}
+.list-istrinta {
+    padding: 15px;
+    background-color: rgba(187, 0, 37, 0.318);
+    border: 2px solid black;
+    border-radius: 20px;
+    margin: 5px;
 }
