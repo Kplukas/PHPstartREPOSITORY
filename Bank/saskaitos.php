@@ -56,7 +56,7 @@ if (file_exists(__DIR__.'/data')) {
             <?php endforeach ?>
         </ul>
         <?php elseif ($error == 1) : ?>
-            <h2>Aktyvių sąskaitų nėra.</h2>
+            <h2 class="nera">Aktyvių sąskaitų nėra.</h2>
             <p>Keliaukite į <a href="http://localhost/manodarbai/testing/Bank/newsaskaita.php">Naujos sąskaitos kūrimas</a> naujos sąskaitos sukūrimui.</p>
         <?php endif ?>
     </main>

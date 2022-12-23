@@ -9,7 +9,7 @@ foreach ($users as $user){
         $sk = $user['kodas'];
         $v = $user['vardas'];
         $p = $user['pavarde'][0];
-        $k = strval($user['asmens kodas'])[9].strval($user['asmens kodas'])[10];
+        $k = $user['asmens kodas'][9].$user['asmens kodas'][10];
         unset($users[$id]);
         break;
     }

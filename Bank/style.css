@@ -157,4 +157,9 @@ footer {
     background-color: white;
     cursor: pointer;
 }
-/* New saskaita ------------------------------------------------------------------------------------*/
+/* Saskaitos ------------------------------------------------------------------------------------*/
+h2 .nera {
+    color: white;
+    text-decoration: underline;
+    font-size: 25px;
+}
