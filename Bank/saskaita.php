@@ -27,7 +27,7 @@ file_put_contents(__DIR__ . '/data', serialize($users));
         <div class="useris-col1">
             <h3 class="useris"><?= $user['vardas'] ?> <?= $user['pavarde'] ?></h3>
             <h3 class="useris">Lėšos:     <span class="useris-suma"><?= $user['suma'] ?> &euro;</span></h3>
-            <form class="useris" action="http://localhost/manodarbai/testing/Bank/add.php">
+            <form class="useris" style="margin-bottom: 20px;" action="http://localhost/manodarbai/testing/Bank/add.php">
                 <label for="suma">Pridedama suma:</label>
                 <input class="input-user" type="text" name="plus">
                 <input type="hidden" name="nr" value="<?= $nr ?>">
