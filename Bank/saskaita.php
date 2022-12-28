@@ -47,7 +47,7 @@ file_put_contents(__DIR__ . '/data', serialize($users));
     <footer>
         <div class="div1">
             <h2 class="h-citata">Dienos citata:</h2>
-            <p class="citata">Jeigu bankas ne mūsų - tai ne bankas.</p>
+            <p class="citata">Jeigu du kartus daliniesi ekranu - gausi papildomą balą.</p>
         </div>
         <div class="div2">
             <h2 class="citata">Darbo laikas:</h2>
