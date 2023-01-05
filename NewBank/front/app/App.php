@@ -2,6 +2,8 @@
 
 namespace Front;
 
+use Front\Controllers\Saskaitos;
+
 class App {
 
     public static function start()
@@ -13,14 +15,10 @@ class App {
 
     private static function router(array $url)
     {
-        if ($url[0] == 'Titulinis') {
+        $method = $_SERVER['REQUEST_METHOD'];
 
-        }
-        if ($url[0] == 'Sarasas') {
-
-        }
-        if ($url[0] == 'Saskaita') {
-
+        if ($url[0] == 'saskaitos' && count($url) == 1 && $method == 'GET') {
+            return (new Saskaitos)->index();
         }
 
         return '404';
