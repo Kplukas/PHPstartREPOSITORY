@@ -21,7 +21,7 @@ class Saskaitos {
         (new FR('saskaitos'))->create($_POST);
         return App::redirect('saskaitos');
     }
-    public function update($id)
+    public function edit($id)
     {
         $pageTitle = 'Sąskaitos redagavimas';
         $saskaita = (new FR('saskaitos'))->show($id);
