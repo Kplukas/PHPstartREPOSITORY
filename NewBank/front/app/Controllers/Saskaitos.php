@@ -25,6 +25,6 @@ class Saskaitos {
     {
         $pageTitle = 'Sąskaitos redagavimas';
         $saskaita = (new FR('saskaitos'))->show($id);
-        return App::view('saskaita-edit', compact('pageTitle', 'saskaita'));
+        return App::view('saskaitos-edit', compact('pageTitle', 'saskaita'));
     }
 }

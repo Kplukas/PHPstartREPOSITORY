@@ -19,18 +19,15 @@ class App {
 
         if ($url[0] == 'saskaitos' && count($url) == 1 && $method == 'GET') {
             return (new Saskaitos)->index();
-        }
-        if ($url[0] == 'saskaitos' && $url[1] == 'create' && count($url) == 2 && $method == 'GET') {
+        } elseif ($url[0] == 'saskaitos' && $url[1] == 'create' && count($url) == 2 && $method == 'GET') {
             return (new Saskaitos)->create();
-        }
-        if ($url[0] == 'saskaitos' && $url[1] == 'save' && count($url) == 2 && $method == 'POST') {
+        } elseif ($url[0] == 'saskaitos' && $url[1] == 'save' && count($url) == 2 && $method == 'POST') {
             return (new Saskaitos)->save();
-        }
-        if ($url[0] == 'saskaitos' && $url[1] == 'edit' && count($url) == 3 && $method == 'POST') {
+        } elseif ($url[0] == 'saskaitos' && $url[1] == 'edit' && count($url) == 3 && $method == 'GET') {
             return (new Saskaitos)->edit($url[2]);
+        } else {
+            return '404';
         }
-
-        return '404';
     }
 
     public static function view(string $__name, array $data)
