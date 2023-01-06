@@ -27,4 +27,14 @@ class Saskaitos {
         $saskaita = (new FR('saskaitos'))->show($id);
         return App::view('saskaitos-edit', compact('pageTitle', 'saskaita'));
     }
+    public function update($id)
+    {
+        (new FR('saskaitos'))->update($id, $_POST);
+        return App::redirect('saskaitos');
+    }
+    public function delete($id)
+    {
+        (new FR('saskaitos'))->delete($id);
+        return App::redirect('saskaitos');
+    }
 }

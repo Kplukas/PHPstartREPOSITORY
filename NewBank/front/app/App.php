@@ -25,6 +25,10 @@ class App {
             return (new Saskaitos)->save();
         } elseif ($url[0] == 'saskaitos' && $url[1] == 'edit' && count($url) == 3 && $method == 'GET') {
             return (new Saskaitos)->edit($url[2]);
+        } elseif ($url[0] == 'saskaitos' && $url[1] == 'update' && count($url) == 3 && $method == 'POST') {
+            return (new Saskaitos)->update($url[2]);
+        } elseif ($url[0] == 'saskaitos' && $url[1] == 'delete' && count($url) == 3 && $method == 'POST') {
+            return (new Saskaitos)->delete($url[2]);
         } else {
             return '404';
         }
