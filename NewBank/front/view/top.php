@@ -7,4 +7,3 @@
     <title><?= $pageTitle ?? 'Untitled Page' ?></title>
 </head>
 <body>
-

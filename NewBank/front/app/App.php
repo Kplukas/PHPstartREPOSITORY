@@ -8,9 +8,9 @@ class App {
 
     public static function start()
     {
-        $url = explode('/',$_SERVER['REQUEST_URI']);
+        $url = explode('/', $_SERVER['REQUEST_URI']);
         array_shift($url);
-        self::router($url);
+        return self::router($url);
     }
 
     private static function router(array $url)
@@ -19,6 +19,12 @@ class App {
 
         if ($url[0] == 'saskaitos' && count($url) == 1 && $method == 'GET') {
             return (new Saskaitos)->index();
+        }
+        if ($url[0] == 'saskaitos' && $url[1] == 'create' && count($url) == 2 && $method == 'GET') {
+            return (new Saskaitos)->create();
+        }
+        if ($url[0] == 'saskaitos' && $url[1] == 'save' && count($url) == 2 && $method == 'POST') {
+            return (new Saskaitos)->save();
         }
 
         return '404';
@@ -31,12 +37,20 @@ class App {
         extract($data);
 
         require __DIR__ . '/../view/top.php';
+
         require __DIR__ . '/../view/'.$__name.'.php';
+
         require __DIR__ . '/../view/bottom.php';
 
         $out = ob_get_contents();
         ob_end_clean();
 
         return $out;
+    }
+
+    public static function redirect($url)
+    {
+        header('Location:'. URL . $url);
+        return null;
     }
 }
