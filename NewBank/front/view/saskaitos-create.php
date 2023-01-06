@@ -1,6 +1,6 @@
 <h1>Nauja sąskaita</h1>
 
-<form action="<?php URL ?>saskaitos/save" method="post">
+<form action="<?php URL ?>/saskaitos/save" method="post">
 
     <div>title<input type="text" name="title"></div> 
     <div>kazkas<input type="text" name="kazkas"></div> 

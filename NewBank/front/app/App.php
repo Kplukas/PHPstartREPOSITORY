@@ -26,6 +26,9 @@ class App {
         if ($url[0] == 'saskaitos' && $url[1] == 'save' && count($url) == 2 && $method == 'POST') {
             return (new Saskaitos)->save();
         }
+        if ($url[0] == 'saskaitos' && $url[1] == 'update' && count($url) == 3 && $method == 'POST') {
+            return (new Saskaitos)->update($url[2]);
+        }
 
         return '404';
     }

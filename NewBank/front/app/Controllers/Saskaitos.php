@@ -21,4 +21,10 @@ class Saskaitos {
         (new FR('saskaitos'))->create($_POST);
         return App::redirect('saskaitos');
     }
+    public function update($id)
+    {
+        $pageTitle = 'Sąskaitos redagavimas';
+        $saskaita = (new FR('saskaitos'))->show($id);
+        return App::view('saskaita-edit', compact('pageTitle', 'saskaita'));
+    }
 }

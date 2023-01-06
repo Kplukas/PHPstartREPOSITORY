@@ -57,7 +57,12 @@ class FileReader implements DataBase {
  
     public function show(int $userId) : array
     {
-        return $this->data[$userId] ?? [];
+        foreach ($this->data as $data) {
+            if ($userId == $data['id']) {
+                return $data;
+            }
+        }
+        return [];
     }
     
     public function showAll() : array
