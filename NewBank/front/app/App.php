@@ -30,7 +30,7 @@ class App {
         } elseif ($url[0] == 'saskaitos' && $url[1] == 'delete' && count($url) == 3 && $method == 'POST') {
             return (new Saskaitos)->delete($url[2]);
         } else {
-            return '404';
+            return (new Saskaitos)->titulinis();
         }
     }
 

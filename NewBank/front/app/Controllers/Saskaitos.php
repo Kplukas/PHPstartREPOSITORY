@@ -37,4 +37,9 @@ class Saskaitos {
         (new FR('saskaitos'))->delete($id);
         return App::redirect('saskaitos');
     }
+    public function titulinis()
+    {
+        $pageTitle = 'Titulinis';
+        return App::view('titulinis', compact('pageTitle'));
+    }
 }
