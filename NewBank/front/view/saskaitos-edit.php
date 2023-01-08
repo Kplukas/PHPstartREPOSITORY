@@ -15,7 +15,7 @@
 
     <button type="submit">Išsaugoti</button>
 </form>
-<form action="<?= URL ?>saskaitos/add/<?= $saskaita['id'] ?>" method="get">
+<form action="<?= URL ?>saskaitos/add/<?= $saskaita['id'] ?>" method="post">
     <input type="text" name="add">
     <button type="submit">Pridėti</button>
 </form>

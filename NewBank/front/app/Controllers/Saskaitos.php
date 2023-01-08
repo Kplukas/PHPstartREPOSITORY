@@ -44,7 +44,7 @@ class Saskaitos {
     }
     public function add($id)
     {
-        (new FR('saskaitos'))->add($id, $_GET);
+        (new FR('saskaitos'))->add($id, $_POST);
         return App::redirect('saskaitos');
     }
 }

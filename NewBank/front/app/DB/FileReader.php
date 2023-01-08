@@ -69,13 +69,19 @@ class FileReader implements DataBase {
     {
         return $this->data;
     }
-    public function add(int $userId, array $newData) :void
+//    public function add($userId, array $newData) :void
+//    {   
+//        $userId = $userId;
+//        foreach ($this->data as $data) {
+//            if ($userId == $data['id']) {
+//                $suma = (int)$data['likutis'] + (int)$newData['add'];
+//                array_map(fn($data) => $userId == $data['id'] ? $suma : $data['likutis'], $this->data['likutis']);
+//            }
+//        }
+//    }
+    public function add(int $userId, array $userData) : void
     {   
-        foreach ($this->data as $data) {
-            if ($userId == $data['id']) {
-                $suma = (int)$data['likutis'] + (int)$newData['add'];
-                array_map(fn($data) => $userId == $data['id'] ? $suma : $data['likutis'], $this->data['likutis']);
-            }
-        }
+        $userData['id'] = $userId;
+        $this->data = array_map(fn($data) => $userId == $data['id'] ? ($data['likutis'] + $userData['add']) : $data['likutis'], $this->data['likutis']);
     }
 }
