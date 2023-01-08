@@ -42,4 +42,9 @@ class Saskaitos {
         $pageTitle = 'Titulinis';
         return App::view('titulinis', compact('pageTitle'));
     }
+    public function add($id)
+    {
+        (new FR('saskaitos'))->add($id, $_GET);
+        return App::redirect('saskaitos');
+    }
 }

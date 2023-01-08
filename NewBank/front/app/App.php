@@ -29,6 +29,8 @@ class App {
             return (new Saskaitos)->update($url[2]);
         } elseif ($url[0] == 'saskaitos' && $url[1] == 'delete' && count($url) == 3 && $method == 'POST') {
             return (new Saskaitos)->delete($url[2]);
+        } elseif ($url[0] == 'saskaitos' && $url[1] == 'add' && count($url) == 3 && $method == 'GET') {
+            return (new Saskaitos)->add($url[2]);
         } else {
             return (new Saskaitos)->titulinis();
         }
