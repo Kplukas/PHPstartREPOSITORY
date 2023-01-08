@@ -17,6 +17,11 @@
 </form>
 <form action="<?= URL ?>saskaitos/add/<?= $saskaita['id'] ?>" method="post">
     <input type="text" name="add">
+    <input type="hidden" name="likutis" value="<?= (int)$saskaita['likutis'] + (int)$saskaita['add']?>">
+    <input type="hidden" name="vardas" value="<?= $saskaita['vardas']?>">
+    <input type="hidden" name="pavarde" value="<?= $saskaita['pavarde']?>">
+    <input type="hidden" name="asmenskodas" value="<?= $saskaita['asmenskodas']?>">
+    <input type="hidden" name="id" value="<?= $saskaita['id']?>">
     <button type="submit">Pridėti</button>
 </form>
 </main>
