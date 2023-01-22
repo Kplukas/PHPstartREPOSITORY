@@ -19,3 +19,7 @@ Route::get('/', function () {
 });
 
 Route::get('/projektas/enter/{id}', [Mano::class, 'enter']);
+Route::get('/projektas/show/{number}', [Mano::class, 'showKint'])->name('linkas');
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
