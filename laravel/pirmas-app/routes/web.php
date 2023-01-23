@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ManoController as Mano;
+use App\Http\Controllers\PostController as PC;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,3 +24,5 @@ Route::get('/projektas/show/{number}', [Mano::class, 'showKint'])->name('linkas'
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/do-sum', [PC::class, 'showForm'])->name('show-form');

@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('vidus')
+@section('content')
 
 @if($number == 1)
 <h1> 1 </h1>
