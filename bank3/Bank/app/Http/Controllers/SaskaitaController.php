@@ -103,4 +103,21 @@ class SaskaitaController extends Controller
         $saskaita->delete();
         return redirect()->route('bank-index');
     }
+    public function plus(Request $request, Saskaita $saskaita){
+        
+        $saskaita->suma = $saskaita->suma + $request->plus;
+        $saskaita->save();
+
+        return redirect()->route('bank-show', $saskaita);
+    }
+    public function minus(Request $request, Saskaita $saskaita){
+        if ($saskaita->suma - $request->minus > 0) {
+            $saskaita->suma = $saskaita->suma - $request->minus;
+            $saskaita->save();
+
+            return redirect()->route('bank-show', $saskaita);
+        }
+
+        return redirect()->route('bank-show', $saskaita);
+    }
 }

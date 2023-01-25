@@ -32,17 +32,21 @@
                                 <h3 class="col-4">
                                     Likutis: {{$saskaita->suma}} &euro;
                                 </h3>
-                                <form class="col-4">
-                                    <input type="text" class="form-control " name="plius">
+                                <form class="col-4" action="{{route('bank-plus', $saskaita)}}" method="post">
+                                    <input type="text" class="form-control " name="plus">
                                     <button type="submit" class="btn btn-success">
                                         +
                                     </button>
+                                    @csrf
+                                    @method('put')
                                 </form>
-                                <form class="col-4">
+                                <form class="col-4" action="{{route('bank-minus', $saskaita)}}" method="post">
                                     <input type="text" class="form-control " name="minus">
                                     <button type="submit" class="btn btn-warning">
                                         -
                                     </button>
+                                    @csrf
+                                    @method('put')
                                 </form>
                             </div>
                         </div>

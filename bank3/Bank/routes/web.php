@@ -22,6 +22,8 @@ Route::prefix('admin/bank')->name('bank-')->group(function () {
     Route::put('/edit/{saskaita}', [SC::class, 'update'])->name('update');
     Route::delete('/delete/{saskaita}', [SC::class, 'destroy'])->name('delete');
     Route::get('/show/{saskaita}', [SC::class, 'show'])->name('show');
+    Route::put('/show/plus/{saskaita}', [SC::class, 'plus'])->name('plus');
+    Route::put('/show/minus/{saskaita}', [SC::class, 'minus'])->name('minus');
 });
 
 
