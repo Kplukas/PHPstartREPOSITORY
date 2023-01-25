@@ -3,8 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Saskaita;
-use App\Http\Requests\StoreSaskaitaRequest;
-use App\Http\Requests\UpdateSaskaitaRequest;
+use Illuminate\Http\Request;
 
 class SaskaitaController extends Controller
 {
@@ -31,10 +30,10 @@ class SaskaitaController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreSaskaitaRequest  $request
+     * @param  \App\Http\Requests\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreSaskaitaRequest $request)
+    public function store(Request $request)
     {
         //
     }
@@ -64,11 +63,11 @@ class SaskaitaController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdateSaskaitaRequest  $request
+     * @param  \App\Http\Requests\Request  $request
      * @param  \App\Models\Saskaita  $saskaita
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateSaskaitaRequest $request, Saskaita $saskaita)
+    public function update(Request $request, Saskaita $saskaita)
     {
         //
     }
