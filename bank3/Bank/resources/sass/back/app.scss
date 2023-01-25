@@ -6,3 +6,55 @@
 
 // Bootstrap
 @import 'bootstrap/scss/bootstrap';
+
+//mano editai
+
+.list-table{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    &__content{
+        width: 30%;
+    }
+    &__buttons{
+        justify-content: flex-end;
+        align-items: center;
+    }
+}
+.list-group-item .sum{    
+    text-align: right;
+}
+.bold {
+    font-weight: bold;
+}
+.boxer {
+    margin: 20px;
+    //border: 1px solid var(--bs-border-color-translucent);
+    //border-radius: 0.375em;
+    padding:10px;
+}
+.boxer-header {
+    border-bottom: 2px solid var(--bs-border-color-translucent);
+    font-size:25px;    
+}
+.boxer-body {
+    font-size: 20px;
+    margin-top:10px;
+}
+.boxer-form {
+    display: inline;
+    float: right;
+}
+.boxer-btn {
+    display: flex;
+}
+.boxer-btn .btn-dark {
+    margin-right: 65px;
+}
+.boxer-btn .btn-secondary {
+    margin-right: 65px;
+}
+.boxer-form2 {
+    display: inline-block;
+}

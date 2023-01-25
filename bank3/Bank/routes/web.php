@@ -18,9 +18,10 @@ Route::prefix('admin/bank')->name('bank-')->group(function () {
     Route::get('/', [SC::class, 'index'] )->name('index');
     Route::get('/create', [SC::class, 'create'] )->name('create');
     Route::post('/create', [SC::class, 'store'] )->name('store');
-    Route::get('/edit/{type}', [SC::class, 'edit'] )->name('edit');
-    Route::put('/edit/{type}', [SC::class, 'update'])->name('update');
-    Route::delete('/delete/{type}', [SC::class, 'destroy'])->name('delete');
+    Route::get('/edit/{saskaita}', [SC::class, 'edit'] )->name('edit');
+    Route::put('/edit/{saskaita}', [SC::class, 'update'])->name('update');
+    Route::delete('/delete/{saskaita}', [SC::class, 'destroy'])->name('delete');
+    Route::get('/show/{saskaita}', [SC::class, 'show'])->name('show');
 });
 
 

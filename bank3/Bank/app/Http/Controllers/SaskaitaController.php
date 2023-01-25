@@ -14,7 +14,10 @@ class SaskaitaController extends Controller
      */
     public function index()
     {
-        //
+        $saskaitos = Saskaita::all()->sortBy('pavarde');
+        return view('back.index', [
+            'saskaitos' => $saskaitos
+        ]);
     }
 
     /**
@@ -24,7 +27,7 @@ class SaskaitaController extends Controller
      */
     public function create()
     {
-        //
+        return view('back.create');
     }
 
     /**
@@ -35,7 +38,15 @@ class SaskaitaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $sas = New Saskaita;
+        $sas->vardas = $request->vardas;
+        $sas->pavarde = $request->pavarde;
+        $sas->ak = $request->ak;
+        $sas->suma = 0.00;
+        $sas->s_nr = $request->s_nr;
+        $sas->save();
+
+        return redirect()->route('bank-index');
     }
 
     /**
@@ -46,7 +57,9 @@ class SaskaitaController extends Controller
      */
     public function show(Saskaita $saskaita)
     {
-        //
+        return view('back.show', [
+            'saskaita' => $saskaita
+        ]);
     }
 
     /**
@@ -57,7 +70,7 @@ class SaskaitaController extends Controller
      */
     public function edit(Saskaita $saskaita)
     {
-        //
+        return view('back.edit', ['saskaita' => $saskaita]);
     }
 
     /**
@@ -69,7 +82,14 @@ class SaskaitaController extends Controller
      */
     public function update(Request $request, Saskaita $saskaita)
     {
-        //
+        $saskaita->vardas = $request->vardas;
+        $saskaita->pavarde = $request->pavarde;
+        $saskaita->ak = $request->ak;
+        $saskaita->suma = $request->suma;
+        $saskaita->s_nr = $request->s_nr;
+        $saskaita->save();
+
+        return redirect()->route('bank-show', $saskaita);
     }
 
     /**
@@ -80,6 +100,7 @@ class SaskaitaController extends Controller
      */
     public function destroy(Saskaita $saskaita)
     {
-        //
+        $saskaita->delete();
+        return redirect()->route('bank-index');
     }
 }

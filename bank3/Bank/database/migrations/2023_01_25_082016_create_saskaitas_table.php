@@ -17,9 +17,9 @@ return new class extends Migration
             $table->id();
             $table->string('vardas', 20);
             $table->string('pavarde', 20);
-            $table->decimal('ak', 11)->unsigned();
+            $table->string('ak', 11);
             $table->decimal('suma', 30, 2)->unsigned();
-            $table->string('s-nr', 16);
+            $table->string('s_nr', 16);
 
             $table->timestamps();
         });
