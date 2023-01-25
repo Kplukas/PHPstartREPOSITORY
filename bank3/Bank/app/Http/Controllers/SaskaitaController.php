@@ -111,6 +111,9 @@ class SaskaitaController extends Controller
         return redirect()->route('bank-show', $saskaita);
     }
     public function minus(Request $request, Saskaita $saskaita){
+        if ($request->minus < 0) {
+            return redirect()->route('bank-show', $saskaita);
+        }
         if ($saskaita->suma - $request->minus > 0) {
             $saskaita->suma = $saskaita->suma - $request->minus;
             $saskaita->save();
@@ -119,5 +122,12 @@ class SaskaitaController extends Controller
         }
 
         return redirect()->route('bank-show', $saskaita);
+    }
+    public function home(){
+
+        $saskaitos = Saskaita::all();
+        return view('back.home', [
+            'saskaitos' => $saskaitos
+        ]);
     }
 }
