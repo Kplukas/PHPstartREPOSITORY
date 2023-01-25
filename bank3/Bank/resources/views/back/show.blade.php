@@ -15,7 +15,8 @@
                                 Asmens informacija:
                             </div>
                             <div class="boxer-body">
-                                <h5 class="card-title">{{$saskaita->vardas}} {{$saskaita->pavarde}}</h5>
+                                <h5 class="card-title">Vardas pavardė: <strong>{{$saskaita->vardas}} {{$saskaita->pavarde}}</strong></h5>
+                                <h5 class="card-title">Asmens kodas: <strong>{{$saskaita->ak}} </strong></h5>
                             </div>
                         </div>
                         <div class="boxer">
@@ -26,22 +27,24 @@
                                 <h5 class="card-title">{{$saskaita->s_nr}}</h5>
                             </div>
                         </div>
-                        <div class="boxer">
-                            <h3 class="boxer-body">
-                                Likutis: {{$saskaita->suma}} &euro;
-                            </h3>
-                            <form class="boxer-form2">
-                                <input type="text" class="form-control" name="plius">
-                                <button type="submit" class="btn btn-success">
-                                    +
-                                </button>
-                            </form>
-                            <form class="boxer-form2">
-                                <input type="text" class="form-control" name="minus">
-                                <button type="submit" class="btn btn-warning">
-                                    -
-                                </button>
-                            </form>
+                        <div class="boxer container">
+                            <div class="row">
+                                <h3 class="col-4">
+                                    Likutis: {{$saskaita->suma}} &euro;
+                                </h3>
+                                <form class="col-4">
+                                    <input type="text" class="form-control " name="plius">
+                                    <button type="submit" class="btn btn-success">
+                                        +
+                                    </button>
+                                </form>
+                                <form class="col-4">
+                                    <input type="text" class="form-control " name="minus">
+                                    <button type="submit" class="btn btn-warning">
+                                        -
+                                    </button>
+                                </form>
+                            </div>
                         </div>
                     </div>
                     <div class="boxer-btn col-12 m-3">

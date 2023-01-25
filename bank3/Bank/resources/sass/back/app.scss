@@ -37,10 +37,14 @@
 .boxer-header {
     border-bottom: 2px solid var(--bs-border-color-translucent);
     font-size:25px;    
+    font-weight: bolder;
 }
 .boxer-body {
     font-size: 20px;
     margin-top:10px;
+    &__form2{
+        display: inline-block;
+    }
 }
 .boxer-form {
     display: inline;
@@ -51,10 +55,20 @@
 }
 .boxer-btn .btn-dark {
     margin-right: 65px;
+    display: inline-block;
 }
 .boxer-btn .btn-secondary {
     margin-right: 65px;
-}
-.boxer-form2 {
     display: inline-block;
+}
+.col-4 input {
+    width: 45%;
+    display: inline;
+    float: left;
+}
+.col-4 .btn {
+    width: 20%;
+    display: inline;
+    float: left;
+    margin-left: 10px;
 }
