@@ -4,15 +4,14 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">
+            <div class="card rounded border border-dark shadow-lg">
+                <div class="card-header bg-dark bg-gradient text-light">
                     <h1> Sąskaitų sąrašas </h1>
                 </div>
-                <div class="card-body">
+                <div class="card-body bg-dark">
                     <ul class="list-group">
                         @forelse($saskaitos as $saskaita)
-
-                        <li class="list-group-item">
+                        <li class="list-group-item bg-light bg-gradient">
                             <div class="list-table">
                                 <div class="list-table__content">
                                     <h3>{{$saskaita->pavarde}}, {{$saskaita->vardas}}</h3>
@@ -27,7 +26,7 @@
                             </div>
                         </li>
                         @empty
-                        <li class="list-group-item">Nėra aktyvių sąskaitų.</li>
+                        <li class="list-group-item shadow">Nėra aktyvių sąskaitų.</li>
                         @endforelse
                     </ul>
                 </div>

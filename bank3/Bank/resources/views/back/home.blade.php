@@ -6,8 +6,8 @@
         <h2 class="col-2 home-h2">Valdymas:</h2>
     </div>
     <div class="d-grid gap-5 m-5">
-        <a href="{{route('bank-create')}}" class="btn btn-primary btn-lg" type="button">Nauja sąskaita</a>
-        <a href="{{route('bank-index')}}" class="btn btn-primary btn-lg" type="button">Sąskaitų sąrašas</a>
+        <a href="{{route('bank-create')}}" class="btn btn-light btn-lg" type="button">Nauja sąskaita</a>
+        <a href="{{route('bank-index')}}" class="btn btn-light btn-lg" type="button">Sąskaitų sąrašas</a>
     </div>
     <div class="container">
         <div class="row justify-content-center">

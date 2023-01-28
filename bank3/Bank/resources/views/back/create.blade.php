@@ -4,11 +4,11 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">
+            <div class="card rounded border border-dark">
+                <div class="card-header bg-dark bg-gradient text-light">
                     <h1> Naujos sąskaitos kūrimas </h1>
                 </div>
-                <div class="card-body">
+                <div class="card-body bg-dark text-light">
                     <form action="{{route('bank-store')}}" method="post">
                         <div class="mb-3">
                             <label class="form-label">Vardas</label>
@@ -29,7 +29,7 @@
                             <input class="form-control" type="text" value="LT{{rand(10000000000000, 99999999999999)}}" readonly name="s_nr">
 
                         </div>
-                        <button type="submit" class="btn btn-dark">Sukurti</button>
+                        <button type="submit" class="btn btn-secondary">Sukurti</button>
                         @csrf
                     </form>
                 </div>

@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>Mano bankas</title>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -22,10 +22,9 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navbar navbar-expand-md shadow-sm navbar-dark bg-dark bg-gradient">
             <div class="container">
-                <a class="navbar-brand" href="{{route('login')}}">
-
+                <a class="navbar-brand" href="{{route('bank-home')}}">
                     Bankas
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
@@ -91,9 +90,40 @@
             </div>
         </nav>
 
-        <main class="py-4">
+
+        <main class="py-5 bg-secondary bg-gradient" style="height: 94vh">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-md-5">
+
+                        @if(Session::has('ok'))
+                        <h3 class="alert alert-success alert-dismissible fade show" role="alert">
+                            {{ Session::get('ok') }}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </h3>
+                        @endif
+
+                        @if(Session::has('not'))
+                        <h3 class="alert alert-danger alert-dismissible fade show" role="alert">
+                            {{ Session::get('not') }}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </h3>
+                        @endif
+
+                        @if($errors)
+                        @foreach ($errors->all() as $message)
+                        <h3 class="alert alert-danger alert-dismissible fade show" role="alert">
+                            {{ $message }}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </h3>
+                        @endforeach
+                        @endif
+
+                    </div>
+                </div>
+            </div>
+
             @yield('content')
         </main>
-    </div>
 </body>
 </html>

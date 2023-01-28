@@ -4,11 +4,11 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">
+            <div class="card rounded border border-dark">
+                <div class="card-header  bg-dark bg-gradient text-light">
                     <h1>Sąskaitos redagavimas</h1>
                 </div>
-                <div class="card-body">
+                <div class="card-body bg-dark text-light">
                     <form action="{{route('bank-update', $saskaita)}}" method="post">
                         <div class="mb-3">
                             <label class="form-label">Vardas</label>

@@ -4,12 +4,12 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">
+            <div class="card rounded border border-dark">
+                <div class="card-header bg-dark bg-gradient text-light">
                     <h2>Privati sąskaita</h2>
                 </div>
-                <div class="card-body">
-                    <div class="card">
+                <div class="card-body bg-dark">
+                    <div class="card  bg-light bg-gradient">
                         <div class="boxer">
                             <div class="boxer-header">
                                 Asmens informacija:
@@ -52,10 +52,11 @@
                         </div>
                     </div>
                     <div class="boxer-btn col-12 m-3">
-                        <a href="{{route('bank-index')}}" class="btn btn-dark col-3">Grįžti atgal</a>
+                        <a href="{{route('bank-index')}}" class="btn btn-light col-3">Grįžti atgal</a>
                         <a href="{{route('bank-edit', $saskaita->id)}}" class="btn btn-secondary col-3">Tvarkyti duomenis</a>
                         <form action="{{route('bank-delete', $saskaita)}}" method="post" class="boxer-form col-3">
-                            <button type="submit" class="btn btn-danger col-12" @if($saskaita->suma > 0) disabled @endif>
+                            <button type="submit" class="btn btn-danger col-12" {{-- @if($saskaita->suma > 0) disabled @endif--}}>
+
                                 Ištrinti
                             </button>
                             @csrf
