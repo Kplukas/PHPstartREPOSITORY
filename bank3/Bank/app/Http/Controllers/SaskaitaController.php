@@ -45,7 +45,7 @@ class SaskaitaController extends Controller
             ]);
             }
             if($request->by == 'more') {
-                $saskaitos = Saskaita::where('suma','<','%'.$request->search.'%')->get();
+                $saskaitos = Saskaita::where('suma','>', $request->search)->get();
                 return view('back.index', [
                 'saskaitos' => $saskaitos,
                 'search' => $request->search ?? '',
@@ -53,7 +53,7 @@ class SaskaitaController extends Controller
             ]);
             }
             if($request->by == 'less') {
-                $saskaitos = Saskaita::where('suma','>','%'.$request->search.'%')->get();
+                $saskaitos = Saskaita::where('suma','<=', $request->search)->get();
                 return view('back.index', [
                 'saskaitos' => $saskaitos,
                 'search' => $request->search ?? '',
