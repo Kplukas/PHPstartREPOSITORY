@@ -6,7 +6,17 @@
         <div class="col-md-8">
             <div class="card rounded border border-dark shadow-lg">
                 <div class="card-header bg-dark bg-gradient text-light">
-                    <h1> Sąskaitų sąrašas </h1>
+                    <h1 class="col-5"> Sąskaitų sąrašas </h1>
+                    <form class="col-5">
+                        <select class="form-select" aria-label="Default select example" name="by">
+                            <option @if($request->by == 'vardas') selected @endif value="vardas">Vardas:</option>
+                            <option @if($request->by == 'pavarde') selected @endif value="pavarde">Pavardė:</option>
+                            <option @if($request->by == 'more') selected @endif value="more">Likutis didesnis negu:</option>
+                            <option @if($request->by == 'less') selected @endif value="less">Likutis mažesnis negu:</option>
+                        </select>
+                        <input type="text" class="form-control" name="search" value="{{$search}}">
+                        <button type="submit">>>>></button>
+                    </form>
                 </div>
                 <div class="card-body bg-dark">
                     <ul class="list-group">

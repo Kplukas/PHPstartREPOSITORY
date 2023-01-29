@@ -18,12 +18,49 @@ class SaskaitaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $saskaitos = Saskaita::all()->sortBy('pavarde');
+        if(!$request->search){
+        $saskaitos = Saskaita::all()->sortBy('pavarde')->sortBy('vardas');
         return view('back.index', [
-            'saskaitos' => $saskaitos
+            'saskaitos' => $saskaitos,
+            'search' => $request->search ?? '',
+            'request'=> $request
         ]);
+        } else {
+            if($request->by == 'vardas') {
+                $saskaitos = Saskaita::where('vardas','like','%'.$request->search.'%')->get();
+                return view('back.index', [
+                'saskaitos' => $saskaitos,
+                'search' => $request->search ?? '',
+                'request'=> $request
+            ]);
+            }
+            if($request->by == 'pavarde') {
+                $saskaitos = Saskaita::where('pavarde','like','%'.$request->search.'%')->get();
+                return view('back.index', [
+                'saskaitos' => $saskaitos,
+                'search' => $request->search ?? '',
+                'request'=> $request
+            ]);
+            }
+            if($request->by == 'more') {
+                $saskaitos = Saskaita::where('suma','<','%'.$request->search.'%')->get();
+                return view('back.index', [
+                'saskaitos' => $saskaitos,
+                'search' => $request->search ?? '',
+                'request'=> $request
+            ]);
+            }
+            if($request->by == 'less') {
+                $saskaitos = Saskaita::where('suma','>','%'.$request->search.'%')->get();
+                return view('back.index', [
+                'saskaitos' => $saskaitos,
+                'search' => $request->search ?? '',
+                'request'=> $request
+            ]);
+            }
+        }
     }
 
     /**
@@ -151,7 +188,7 @@ class SaskaitaController extends Controller
         if ($request->minus < 0 || !is_numeric($request->minus)) {
             return redirect()->route('bank-show', $saskaita)->with('not','Galima nurašyti tik teigiamą sumą.');
         }
-        if ($saskaita->suma - $request->minus > 0) {
+        if ($saskaita->suma - $request->minus >= 0) {
             $saskaita->suma = $saskaita->suma - $request->minus;
             $saskaita->save();
 
