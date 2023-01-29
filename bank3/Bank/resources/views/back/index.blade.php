@@ -17,7 +17,7 @@
                                 <option @if($request->by == 'less') selected @endif value="less">Likutis mažesnis negu:</option>
                             </select>
                             <input type="text" class="form-control col-5 mt-3" style="width: 50%; display:inline" name="search" value="{{$search}}">
-                            <button class="btn btn-light" type="submit"> >>>> </button>
+                            <button class="btn btn-light" type="submit">Ieškoti</button>
                         </form>
                     </div>
                 </div>
