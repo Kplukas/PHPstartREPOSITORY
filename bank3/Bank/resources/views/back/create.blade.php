@@ -12,17 +12,15 @@
                     <form action="{{route('bank-store')}}" method="post">
                         <div class="mb-3">
                             <label class="form-label">Vardas</label>
-                            <input type="text" class="form-control" name="vardas">
+                            <input type="text" class="form-control" name="vardas" value="{{$request->old1 ?? ''}}">
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Pavardė</label>
-                            <input type="text" class="form-control" name="pavarde">
-
+                            <input type="text" class="form-control" name="pavarde" value="{{$request->old2 ?? ''}}">
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Asmens kodas:</label>
-                            <input type="text" class="form-control" name="ak">
-
+                            <input type="text" class="form-control" name="ak" value="{{$request->old3 ?? ''}}">
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Sąskaitos numeris:</label>

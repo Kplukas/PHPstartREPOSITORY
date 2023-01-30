@@ -68,9 +68,9 @@ class SaskaitaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        return view('back.create');
+        return view('back.create',['old1' => $old1 ?? '', 'old2' => $old2 ?? '', 'old3' => $old3 ?? '', 'request' => $request]);
     }
 
     /**
@@ -90,8 +90,11 @@ class SaskaitaController extends Controller
             ]);
 
             if ($validator->fails()) {
-                $request->flash();
-                return redirect()->back()->with('not', 'Neteisingai suvesti duomenys.');
+                
+                return redirect()->route('bank-create', [
+            'old1' => $request->vardas,
+            'old2' => $request->pavarde,
+            'old3' => $request->ak])->with('not', 'Neteisingai suvesti duomenys.');
             }
         $sas = New Saskaita;
         $sas->vardas = $request->vardas;
@@ -101,7 +104,7 @@ class SaskaitaController extends Controller
         $sas->s_nr = $request->s_nr;
         $sas->save();
 
-        return redirect()->route('bank-index')->with('ok','Nauja sąskaita sukurta.');
+        return redirect()->route('bank-index')->with('ok','Nauja sąskaita '.$request->s_nr.' sukurta.');
     }
 
     /**

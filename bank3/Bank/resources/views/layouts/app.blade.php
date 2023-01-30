@@ -91,7 +91,7 @@
         </nav>
 
 
-        <main class="py-5 bg-secondary bg-gradient" style="height: 94vh">
+        <main class="py-5 bg-secondary bg-gradient" style="min-height: 94vh">
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-md-5">
