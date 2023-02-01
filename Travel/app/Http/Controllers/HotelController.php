@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Hotel;
+use App\Models\Country;
 use App\Http\Requests\StoreHotelRequest;
 use App\Http\Requests\UpdateHotelRequest;
 
@@ -15,7 +16,8 @@ class HotelController extends Controller
      */
     public function index()
     {
-        //
+        $hotels = Hotel::all();
+        return View('back.hotel.index', ['hotels' => $hotels]);
     }
 
     /**
@@ -25,7 +27,10 @@ class HotelController extends Controller
      */
     public function create()
     {
-        //
+        $c = Country::all();
+        return View('back.hotel.create', [
+            'countries' => $c
+        ]);
     }
 
     /**
@@ -36,7 +41,16 @@ class HotelController extends Controller
      */
     public function store(StoreHotelRequest $request)
     {
-        //
+        $h = New Hotel;
+        $h->name = $request->name;
+        $h->price = $request->price;
+        $h->visit_start = $request->visit_start;
+        $h->visit_end = $request->visit_end;
+        $h->c_id = $request->c_id;
+        $h->photo = $request->photo;
+        $h->save();
+
+        return redirect()->route('h-index');
     }
 
     /**

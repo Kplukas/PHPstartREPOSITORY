@@ -13,7 +13,11 @@ Route::prefix('country')->name('c-')->group(function () {
     Route::put('/edit/{country}', [CC::class, 'update'] )->name('update');
     Route::delete('/delete/{country}', [CC::class, 'destroy'])->name('delete');
 });
-
+Route::prefix('hotel')->name('h-')->group(function () {
+    Route::get('/', [HC::class, 'index'] )->name('index');
+    Route::get('/create', [HC::class, 'create'] )->name('create');
+    Route::post('/create', [HC::class, 'store'] )->name('store');
+});
 
 /*
 Route::prefix('admin/bank')->name('bank-')->group(function () {
