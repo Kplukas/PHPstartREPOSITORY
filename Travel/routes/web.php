@@ -11,6 +11,7 @@ Route::prefix('country')->name('c-')->group(function () {
     Route::post('/create', [CC::class, 'store'] )->name('store');
     Route::get('/edit/{country}', [CC::class, 'edit'] )->name('edit');
     Route::put('/edit/{country}', [CC::class, 'update'] )->name('update');
+    Route::delete('/delete/{country}', [CC::class, 'destroy'])->name('delete');
 });
 
 
