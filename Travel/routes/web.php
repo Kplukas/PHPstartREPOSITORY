@@ -1,21 +1,39 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CountryController as CC;
+use App\Http\Controllers\HotelController as HC;
+
+
+Route::prefix('country')->name('c-')->group(function () {
+    Route::get('/', [CC::class, 'index'] )->name('index');
+    Route::get('/create', [CC::class, 'create'] )->name('create');
+    Route::post('/create', [CC::class, 'store'] )->name('store');
+    Route::get('/edit/{country}', [CC::class, 'edit'] )->name('edit');
+    Route::put('/edit/{country}', [CC::class, 'update'] )->name('update');
+});
+
 
 /*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
+Route::prefix('admin/bank')->name('bank-')->group(function () {
+    Route::get('/', [SC::class, 'index'] )->name('index');
+    Route::get('/home', [SC::class, 'home'] )->name('home');
+    Route::get('/create', [SC::class, 'create'] )->name('create');
+    Route::post('/create', [SC::class, 'store'] )->name('store');
+    Route::get('/edit/{saskaita}', [SC::class, 'edit'] )->name('edit');
+    Route::put('/edit/{saskaita}', [SC::class, 'update'])->name('update');
+    Route::delete('/delete/{saskaita}', [SC::class, 'destroy'])->name('delete');
+    Route::get('/show/{saskaita}', [SC::class, 'show'])->name('show');
+    Route::put('/show/plus/{saskaita}', [SC::class, 'plus'])->name('plus');
+    Route::put('/show/minus/{saskaita}', [SC::class, 'minus'])->name('minus');
+});
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+
+
+
+
 
 Auth::routes();
 

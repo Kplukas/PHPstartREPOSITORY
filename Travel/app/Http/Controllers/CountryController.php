@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Country;
 use App\Http\Requests\StoreCountryRequest;
 use App\Http\Requests\UpdateCountryRequest;
+use Illuminate\Support\Facades\Validator;
 
 class CountryController extends Controller
 {
@@ -15,7 +16,8 @@ class CountryController extends Controller
      */
     public function index()
     {
-        //
+        $c = Country::all();
+        return View('back.country.index', ['c' => $c]);
     }
 
     /**
@@ -25,7 +27,7 @@ class CountryController extends Controller
      */
     public function create()
     {
-        //
+        return View('back.country.create');
     }
 
     /**
@@ -36,7 +38,13 @@ class CountryController extends Controller
      */
     public function store(StoreCountryRequest $request)
     {
-        //
+        $c = New Country;
+        $c->title = $request->title;
+        $c->season_start = $request->season_start;
+        $c->season_end = $request->season_end;
+        $c->save();
+
+        return redirect()->route('c-index');
     }
 
     /**
@@ -58,7 +66,7 @@ class CountryController extends Controller
      */
     public function edit(Country $country)
     {
-        //
+        return view('back.country.edit', ['country' => $country]);
     }
 
     /**
@@ -70,7 +78,12 @@ class CountryController extends Controller
      */
     public function update(UpdateCountryRequest $request, Country $country)
     {
-        //
+        $country->title = $request->title;
+        $country->season_start = $request->season_start;
+        $country->season_end = $request->season_end;
+        $country->save();
+
+        return redirect()->route('c-index');
     }
 
     /**
