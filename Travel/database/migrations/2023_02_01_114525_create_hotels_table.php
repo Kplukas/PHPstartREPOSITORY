@@ -15,6 +15,12 @@ return new class extends Migration
     {
         Schema::create('hotels', function (Blueprint $table) {
             $table->id();
+            $table->string('name', 50);
+            $table->decimal('price', 6, 2)->unsigned();
+            $table->date('visit_start');
+            $table->date('visit_end');
+            $table->unsignedBigInteger('c_id');
+            $table->string('photo', 200)->nullable();
             $table->timestamps();
         });
     }
