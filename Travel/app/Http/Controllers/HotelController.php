@@ -27,9 +27,9 @@ class HotelController extends Controller
      */
     public function create()
     {
-        $c = Country::all();
+        $country = Country::all();
         return View('back.hotel.create', [
-            'countries' => $c
+            'country' => $country
         ]);
     }
 

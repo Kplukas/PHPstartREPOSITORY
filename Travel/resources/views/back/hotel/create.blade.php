@@ -27,8 +27,8 @@
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Šalis</label>
-                            <select class="form-select" aria-label="Default select example">
-                                @foreach($countries as $c)
+                            <select class="form-select">
+                                @foreach($country as $c)
                                 <option name="c_id" value="{{$c->id}}">{{$c->title}}</option>
 
                                 @endforeach
