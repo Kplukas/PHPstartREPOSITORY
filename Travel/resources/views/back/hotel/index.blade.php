@@ -21,7 +21,7 @@
                     <p>{{$hotel->price}}</p>
                     <form action="{{route('h-delete', $hotel)}}" method="post" class="boxer-form col-3">
                         <button type="submit" class="btn btn-danger col-12">
-                            Ištrinti
+                            Delete
                         </button>
                         @csrf
                         @method('delete')

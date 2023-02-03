@@ -19,9 +19,9 @@
                         @csrf
                         @method('delete')
                     </form>
-                    <a href="{{route('c-edit', $country)}}" class="btn btn-secondary">Secondary</a>
+                    <a href="{{route('c-edit', $country)}}" class="btn btn-secondary">Edit</a>
                     @empty
-                    <h2>Pasaulis bum bum</h2>
+                    <h2>No destinations</h2>
                     @endforelse
                 </div>
             </div>

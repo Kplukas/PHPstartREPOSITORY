@@ -42,8 +42,8 @@
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="{{ route('c-index') }}">Šalių sąrašas</a>
-                                <a class="dropdown-item" href="{{ route('c-create') }}">Šalies pridėjimas</a>
+                                <a class="dropdown-item" href="{{ route('c-index') }}">Countries list</a>
+                                <a class="dropdown-item" href="{{ route('c-create') }}">New Country</a>
                             </div>
                         </li>
                         <li class="nav-item dropdown">
@@ -52,8 +52,8 @@
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="{{ route('h-index') }}">Hotel sąrašas</a>
-                                <a class="dropdown-item" href="{{ route('h-create') }}">Hotel pridėjimas</a>
+                                <a class="dropdown-item" href="{{ route('h-index') }}">Hotel list</a>
+                                <a class="dropdown-item" href="{{ route('h-create') }}">New Hotel</a>
                             </div>
                         </li>
                         @guest
