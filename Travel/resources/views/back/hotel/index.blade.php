@@ -6,30 +6,35 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">Hotels</div>
-
                 <div class="card-body">
-                    @forelse($hotels as $hotel)
-                    <h2> {{$hotel->name}},
-                        @foreach($countries as $country)
-                        @if ($country->id == $hotel->c_id)
-                        {{$country->title}}
-                        @endif
-                        @endforeach
-                    </h2>
-                    <p>{{$hotel->visit_start}}</p>
-                    <p>{{$hotel->visit_end}}</p>
-                    <p>{{$hotel->price}}</p>
-                    <form action="{{route('h-delete', $hotel)}}" method="post" class="boxer-form col-3">
-                        <button type="submit" class="btn btn-danger col-12">
-                            Delete
-                        </button>
-                        @csrf
-                        @method('delete')
-                    </form>
-                    <a href="{{route('h-edit', $hotel)}}" class="btn btn-secondary">Edit</a>
-                    @empty
-                    <h2>No hotels</h2>
-                    @endforelse
+                    <ul class="list-group list-group-flush">
+                        @forelse($hotels as $hotel)
+                        <li class="list-group-item">
+                            <h2> {{$hotel->name}},
+                                @foreach($countries as $country)
+                                @if ($country->id == $hotel->c_id)
+                                {{$country->title}}
+                                @endif
+                                @endforeach
+                            </h2>
+                            <p>{{$hotel->visit_start}}</p>
+                            <p>{{$hotel->visit_end}}</p>
+                            <p>{{$hotel->price}} Eur</p>
+                            <a href="{{route('h-edit', $hotel)}}" class="btn btn-secondary">Edit</a>
+                            <form action="{{route('h-delete', $hotel)}}" method="post" class="boxer-form col-3">
+                                <button type="submit" class="btn btn-danger col-12">
+                                    Delete
+                                </button>
+                                @csrf
+                                @method('delete')
+                            </form>
+                        </li>
+                        @empty
+                        <li class="list-group-item">
+                            <h2>No hotels</h2>
+                        </li>
+                        @endforelse
+                    </ul>
                 </div>
             </div>
         </div>
