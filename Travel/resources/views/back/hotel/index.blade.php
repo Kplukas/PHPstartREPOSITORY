@@ -9,7 +9,13 @@
 
                 <div class="card-body">
                     @forelse($hotels as $hotel)
-                    <h2> {{$hotel->name}}</h2>
+                    <h2> {{$hotel->name}},
+                        @foreach($countries as $country)
+                        @if ($country->id == $hotel->c_id)
+                        {{$country->title}}
+                        @endif
+                        @endforeach
+                    </h2>
                     <p>{{$hotel->visit_start}}</p>
                     <p>{{$hotel->visit_end}}</p>
                     <p>{{$hotel->price}}</p>
@@ -20,6 +26,7 @@
                         @csrf
                         @method('delete')
                     </form>
+                    <a href="{{route('h-edit', $hotel)}}" class="btn btn-secondary">Edit</a>
                     @empty
                     <h2>No hotels</h2>
                     @endforelse

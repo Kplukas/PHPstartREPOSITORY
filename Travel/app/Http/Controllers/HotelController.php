@@ -17,7 +17,11 @@ class HotelController extends Controller
     public function index()
     {
         $hotels = Hotel::all();
-        return View('back.hotel.index', ['hotels' => $hotels]);
+        $countries = Country::all();
+        return View('back.hotel.index', [
+            'hotels' => $hotels,
+            'countries' => $countries
+        ]);
     }
 
     /**
@@ -41,14 +45,14 @@ class HotelController extends Controller
      */
     public function store(StoreHotelRequest $request)
     {
-        $h = New Hotel;
-        $h->name = $request->name;
-        $h->price = $request->price;
-        $h->visit_start = $request->visit_start;
-        $h->visit_end = $request->visit_end;
-        $h->c_id = $request->cid;
-        $h->photo = $request->photo;
-        $h->save();
+        $hotel = New Hotel;
+        $hotel->name = $request->name;
+        $hotel->price = $request->price;
+        $hotel->visit_start = $request->visit_start;
+        $hotel->visit_end = $request->visit_end;
+        $hotel->c_id = $request->cid;
+        $hotel->photo = $request->photo;
+        $hotel->save();
 
         return redirect()->route('h-index');
     }
@@ -72,7 +76,11 @@ class HotelController extends Controller
      */
     public function edit(Hotel $hotel)
     {
-        //
+        $countries = Country::all();
+        return view('back.hotel.edit', [
+            'hotel' => $hotel,
+            'countries' => $countries
+        ]);
     }
 
     /**
@@ -84,7 +92,15 @@ class HotelController extends Controller
      */
     public function update(UpdateHotelRequest $request, Hotel $hotel)
     {
-        //
+        $hotel->name = $request->name;
+        $hotel->price = $request->price;
+        $hotel->visit_start = $request->visit_start;
+        $hotel->visit_end = $request->visit_end;
+        $hotel->c_id = $request->cid;
+        $hotel->photo = $request->photo;
+        $hotel->save();
+
+        return redirect()->route('h-index');
     }
 
     /**
