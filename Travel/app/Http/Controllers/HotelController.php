@@ -46,7 +46,7 @@ class HotelController extends Controller
         $h->price = $request->price;
         $h->visit_start = $request->visit_start;
         $h->visit_end = $request->visit_end;
-        $h->c_id = $request->c_id;
+        $h->c_id = $request->cid;
         $h->photo = $request->photo;
         $h->save();
 

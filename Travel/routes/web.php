@@ -17,6 +17,9 @@ Route::prefix('hotel')->name('h-')->group(function () {
     Route::get('/', [HC::class, 'index'] )->name('index');
     Route::get('/create', [HC::class, 'create'] )->name('create');
     Route::post('/create', [HC::class, 'store'] )->name('store');
+    Route::get('/edit/{hotel}', [HC::class, 'edit'] )->name('edit');
+    Route::put('/edit/{hotel}', [HC::class, 'update'] )->name('update');
+    Route::delete('/delete/{hotel}', [HC::class, 'destroy'])->name('delete');
 });
 
 /*

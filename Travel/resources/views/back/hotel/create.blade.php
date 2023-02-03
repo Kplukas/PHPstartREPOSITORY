@@ -27,10 +27,9 @@
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Šalis</label>
-                            <select class="form-select">
+                            <select name="cid" class="form-select">
                                 @foreach($country as $c)
-                                <option name="c_id" value="{{$c->id}}">{{$c->title}}</option>
-
+                                <option name="cid" value="{{$c->id}}">{{$c->title}}{{$c->id}}</option>
                                 @endforeach
                             </select>
                         </div>

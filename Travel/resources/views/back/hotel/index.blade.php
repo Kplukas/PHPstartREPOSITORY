@@ -9,9 +9,10 @@
 
                 <div class="card-body">
                     @forelse($hotels as $hotel)
-                    <h2> {{$hotel->title}}</h2>
-                    <p>{{$hotel->season_start}}</p>
-                    <p>{{$hotel->season_end}}</p>
+                    <h2> {{$hotel->name}}</h2>
+                    <p>{{$hotel->visit_start}}</p>
+                    <p>{{$hotel->visit_end}}</p>
+                    <p>{{$hotel->price}}</p>
                     <form action="{{route('h-delete', $hotel)}}" method="post" class="boxer-form col-3">
                         <button type="submit" class="btn btn-danger col-12">
                             Ištrinti

@@ -20,6 +20,7 @@ return new class extends Migration
             $table->date('visit_start');
             $table->date('visit_end');
             $table->unsignedBigInteger('c_id');
+            $table->foreign('c_id')->references('id')->on('countries');
             $table->string('photo', 200)->nullable();
             $table->timestamps();
         });
