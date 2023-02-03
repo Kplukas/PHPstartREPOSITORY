@@ -19,6 +19,11 @@ class CountryController extends Controller
         $c = Country::all();
         return View('back.country.index', ['c' => $c]);
     }
+    public function index2()
+    {
+        $c = Country::all();
+        return View('front.country.index', ['c' => $c]);
+    }
 
     /**
      * Show the form for creating a new resource.

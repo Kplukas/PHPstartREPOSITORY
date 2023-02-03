@@ -23,6 +23,15 @@ class HotelController extends Controller
             'countries' => $countries
         ]);
     }
+    public function index2()
+    {
+        $hotels = Hotel::all();
+        $countries = Country::all();
+        return View('front.hotel.index', [
+            'hotels' => $hotels,
+            'countries' => $countries
+        ]);
+    }
 
     /**
      * Show the form for creating a new resource.

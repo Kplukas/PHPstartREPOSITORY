@@ -8,6 +8,7 @@ use App\Http\Controllers\OrderController as OC;
 
 Route::prefix('country')->name('c-')->group(function () {
     Route::get('/', [CC::class, 'index'] )->name('index')->middleware('roles:A');
+    Route::get('/list', [CC::class, 'index2'] )->name('index2')->middleware('roles:A|C');
     Route::get('/create', [CC::class, 'create'] )->name('create')->middleware('roles:A');
     Route::post('/create', [CC::class, 'store'] )->name('store')->middleware('roles:A');
     Route::get('/edit/{country}', [CC::class, 'edit'] )->name('edit')->middleware('roles:A');
@@ -16,6 +17,7 @@ Route::prefix('country')->name('c-')->group(function () {
 });
 Route::prefix('hotel')->name('h-')->group(function () {
     Route::get('/', [HC::class, 'index'] )->name('index')->middleware('roles:A');
+    Route::get('/list', [HC::class, 'index2'] )->name('index2')->middleware('roles:A|C');
     Route::get('/create', [HC::class, 'create'] )->name('create')->middleware('roles:A');
     Route::post('/create', [HC::class, 'store'] )->name('store')->middleware('roles:A');
     Route::get('/edit/{hotel}', [HC::class, 'edit'] )->name('edit')->middleware('roles:A');
