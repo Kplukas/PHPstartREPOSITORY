@@ -36,6 +36,11 @@
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ms-auto">
                         <!-- Authentication Links -->
+                        @if (!Auth::user())
+
+                        @elseif(Auth::user()->role == 'customer')
+
+                        @elseif (Auth::user()->role == 'admin')
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 Country
@@ -65,7 +70,7 @@
                                 <a class="dropdown-item" href="{{ route('o-index') }}">Orders list</a>
                             </div>
                         </li>
-
+                        @endif
                         @guest
                         @if (Route::has('login'))
                         <li class="nav-item">

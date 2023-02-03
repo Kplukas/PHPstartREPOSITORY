@@ -7,28 +7,28 @@ use App\Http\Controllers\OrderController as OC;
 
 
 Route::prefix('country')->name('c-')->group(function () {
-    Route::get('/', [CC::class, 'index'] )->name('index');
-    Route::get('/create', [CC::class, 'create'] )->name('create')->middleware('roles');
-    Route::post('/create', [CC::class, 'store'] )->name('store');
-    Route::get('/edit/{country}', [CC::class, 'edit'] )->name('edit');
-    Route::put('/edit/{country}', [CC::class, 'update'] )->name('update');
-    Route::delete('/delete/{country}', [CC::class, 'destroy'])->name('delete');
+    Route::get('/', [CC::class, 'index'] )->name('index')->middleware('roles:A');
+    Route::get('/create', [CC::class, 'create'] )->name('create')->middleware('roles:A');
+    Route::post('/create', [CC::class, 'store'] )->name('store')->middleware('roles:A');
+    Route::get('/edit/{country}', [CC::class, 'edit'] )->name('edit')->middleware('roles:A');
+    Route::put('/edit/{country}', [CC::class, 'update'] )->name('update')->middleware('roles:A');
+    Route::delete('/delete/{country}', [CC::class, 'destroy'])->name('delete')->middleware('roles:A');
 });
 Route::prefix('hotel')->name('h-')->group(function () {
-    Route::get('/', [HC::class, 'index'] )->name('index');
-    Route::get('/create', [HC::class, 'create'] )->name('create');
-    Route::post('/create', [HC::class, 'store'] )->name('store');
-    Route::get('/edit/{hotel}', [HC::class, 'edit'] )->name('edit');
-    Route::put('/edit/{hotel}', [HC::class, 'update'] )->name('update');
-    Route::delete('/delete/{hotel}', [HC::class, 'destroy'])->name('delete');
+    Route::get('/', [HC::class, 'index'] )->name('index')->middleware('roles:A');
+    Route::get('/create', [HC::class, 'create'] )->name('create')->middleware('roles:A');
+    Route::post('/create', [HC::class, 'store'] )->name('store')->middleware('roles:A');
+    Route::get('/edit/{hotel}', [HC::class, 'edit'] )->name('edit')->middleware('roles:A');
+    Route::put('/edit/{hotel}', [HC::class, 'update'] )->name('update')->middleware('roles:A');
+    Route::delete('/delete/{hotel}', [HC::class, 'destroy'])->name('delete')->middleware('roles:A');
 });
 Route::prefix('order')->name('o-')->group(function () {
-    Route::get('/', [OC::class, 'index'] )->name('index');
-    Route::get('/create', [OC::class, 'create'] )->name('create');
-    Route::post('/create', [OC::class, 'store'] )->name('store');
-    Route::get('/edit/{order}', [OC::class, 'edit'] )->name('edit');
-    Route::put('/edit/{order}', [OC::class, 'update'] )->name('update');
-    Route::delete('/delete/{order}', [OC::class, 'destroy'])->name('delete');
+    Route::get('/', [OC::class, 'index'] )->name('index')->middleware('roles:A');
+    Route::get('/create', [OC::class, 'create'] )->name('create')->middleware('roles:A');
+    Route::post('/create', [OC::class, 'store'] )->name('store')->middleware('roles:A');
+    Route::get('/edit/{order}', [OC::class, 'edit'] )->name('edit')->middleware('roles:A');
+    Route::put('/edit/{order}', [OC::class, 'update'] )->name('update')->middleware('roles:A');
+    Route::delete('/delete/{order}', [OC::class, 'destroy'])->name('delete')->middleware('roles:A');
 });
 
 /*
