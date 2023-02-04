@@ -35,7 +35,7 @@
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Photo</label>
-                            <input type="file" class="form-control" name="photo">
+                            <input type="file" class="form-control" name="photo" enctype="multipart/form-data">
                         </div>
                         <button type="submit" class="btn btn-secondary">Create</button>
                         @csrf

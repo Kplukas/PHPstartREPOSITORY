@@ -55,12 +55,19 @@ class HotelController extends Controller
     public function store(StoreHotelRequest $request)
     {
         $hotel = New Hotel;
+        if($request->file('photo')) {
+            $photo = $request->file('photo');
+            $ext = $photo->getClientOriginalExtension();
+            $name = pathInfo($photo->getClientOriginalName(), PATHINFO_FILENAME);
+            $file = $name. '-' . rand(100000,999999). $ext;
+            $photo->move(public_path().'/img', $file);
+            $hotel->photo = '/img'. '/'. $file;
+        }
         $hotel->name = $request->name;
         $hotel->price = $request->price;
         $hotel->visit_start = $request->visit_start;
         $hotel->visit_end = $request->visit_end;
         $hotel->c_id = $request->cid;
-        $hotel->photo = $request->photo;
         $hotel->save();
 
         return redirect()->route('h-index');
