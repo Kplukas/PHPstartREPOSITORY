@@ -8,7 +8,7 @@
                 <div class="card-header">New hotel</div>
 
                 <div class="card-body">
-                    <form action="{{route('h-store')}}" method="post">
+                    <form action="{{route('h-store')}}" method="post" enctype="multipart/form-data">
                         <div class="mb-3">
                             <label class="form-label">Hotel name:</label>
                             <input type="text" class="form-control" name="name">
@@ -35,7 +35,7 @@
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Photo</label>
-                            <input type="file" class="form-control" name="photo" enctype="multipart/form-data">
+                            <input type="file" class="form-control" name="photo">
                         </div>
                         <button type="submit" class="btn btn-secondary">Create</button>
                         @csrf

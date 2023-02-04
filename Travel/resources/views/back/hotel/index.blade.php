@@ -20,8 +20,13 @@
                             <p>{{$hotel->visit_start}}</p>
                             <p>{{$hotel->visit_end}}</p>
                             <p>{{$hotel->price}} Eur</p>
-                            <a href="{{route('h-edit', $hotel)}}" class="btn btn-secondary">Edit</a>
+                            @if(!$hotel->photo)
+
+                            @else
+                            <img src="{{asset($hotel->photo)}}" class="img">
+                            @endif
                             <form action="{{route('h-delete', $hotel)}}" method="post" class="boxer-form col-3">
+                                <a href="{{route('h-edit', $hotel)}}" class="btn btn-secondary">Edit</a>
                                 <button type="submit" class="btn btn-danger col-12">
                                     Delete
                                 </button>

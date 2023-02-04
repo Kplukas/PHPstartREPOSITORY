@@ -12,27 +12,19 @@
                     <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
                 </div>
                 <div class="carousel-inner">
+                    @foreach($hotels as $hotel)
+                    @if(!$hotel->photo)
+
+                    @else
                     <div class="carousel-item active">
-                        <img src="..." class="d-block w-100" alt="...">
+                        <img src="{{asset($hotel->photo)}}" class="d-block w-100" alt="{{$hotel->name}}">
                         <div class="carousel-caption d-none d-md-block">
-                            <h5>First slide label</h5>
-                            <p>Some representative placeholder content for the first slide.</p>
+                            <h5>{{$hotel->name}}</h5>
+                            <p>{{$hotel->price}} &euro; | From: {{$hotel->visit_start}} | To: {{$hotel->visit_end}}</p>
                         </div>
                     </div>
-                    <div class="carousel-item">
-                        <img src="..." class="d-block w-100" alt="...">
-                        <div class="carousel-caption d-none d-md-block">
-                            <h5>Second slide label</h5>
-                            <p>Some representative placeholder content for the second slide.</p>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <img src="..." class="d-block w-100" alt="...">
-                        <div class="carousel-caption d-none d-md-block">
-                            <h5>Third slide label</h5>
-                            <p>Some representative placeholder content for the third slide.</p>
-                        </div>
-                    </div>
+                    @endif
+                    @endforeach
                 </div>
                 <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
