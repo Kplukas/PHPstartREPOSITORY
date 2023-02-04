@@ -20,7 +20,7 @@ return new class extends Migration
             $table->unsignedBigInteger('hotel_id');
             $table->foreign('hotel_id')->references('id')->on('hotels');
             $table->boolean('confirmed')->default(0);
-            $table->string('situation', 200)->nullable()->default('Laukiama peržiūros');
+            $table->string('situation', 200)->nullable()->default('Awaiting confirmation');
             $table->timestamps();
         });
     }

@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Closure;
 use Illuminate\Http\Request;
 use App\Models\Order;
+use App\Models\User;
+use App\Models\Hotel;
+use App\Models\Country;
 use App\Http\Requests\StoreOrderRequest;
 use App\Http\Requests\UpdateOrderRequest;
 
@@ -17,13 +20,28 @@ class OrderController extends Controller
      */
     public function index()
     {
+        $users = User::all();
+        $countries = Country::all();
+        $hotels = Hotel::all();
         $orders = Order::all();
-        return View('back.orders.index', ['orders' => $orders]);
+        return View('back.orders.index', [
+            'orders' => $orders,
+            'countries' => $countries,
+            'hotels' => $hotels,
+            'users' => $users
+
+    ]);
     }
     public function index2()
     {
+        $countries = Country::all();
+        $hotels = Hotel::all();
         $orders = Order::all();
-        return View('front.orders.index', ['orders' => $orders]);
+        return View('front.orders.index', [
+            'orders' => $orders,
+            'countries' => $countries,
+            'hotels' => $hotels
+        ]);
     }
 
     /**
@@ -33,7 +51,7 @@ class OrderController extends Controller
      */
     public function create()
     {
-        
+
     }
 
     /**

@@ -9,7 +9,14 @@
 
                 <div class="card-body">
                     @forelse($orders as $order)
-                    <h2>{{$order->id}}{{$order->client_id}}{{$order->hotel_id}}</h2>
+                    <h2>
+                        @foreach($hotels as $hotel)
+                        @if($hotel->id == $order->hotel_id)
+                        {{$hotel->name}}
+                        @endif
+                        @endforeach
+                    </h2>
+                    <p>{{$order->situation}}</p>
                     @empty
                     <h2>No orders yet</h2>
                     @endforelse

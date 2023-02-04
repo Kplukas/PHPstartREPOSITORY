@@ -9,7 +9,22 @@
 
                 <div class="card-body">
                     @forelse($orders as $order)
-                    <h2>{{$order->id}}{{$order->client_id}}{{$order->hotel_id}}</h2>
+                    <h4>Order number: {{$order->id}} @if($order->confirmed == 0)
+                        <span class="badge rounded-pill bg-secondary">Not approved</span>
+                        @else
+                        <span class="badge rounded-pill bg-success">Approved</span>
+                        @endif
+                    </h4>
+                    @foreach($users as $user)
+                    @if($user->id == $order->client_id)
+                    <h2>Client: {{$user->name}} || @foreach($hotels as $hotel)
+                        @if($hotel->id == $order->hotel_id)
+                        Hotel: {{$hotel->name}} || Price: {{$hotel->price}}
+                        @endif
+                        @endforeach
+                        @endif
+                        @endforeach
+                    </h2>
                     @empty
                     <h2>No orders yet</h2>
                     @endforelse
