@@ -89,7 +89,7 @@ class OrderController extends Controller
      */
     public function edit(Order $order)
     {
-        //
+        return view('back.orders.edit', ['order' => $order]);
     }
 
     /**
@@ -101,7 +101,11 @@ class OrderController extends Controller
      */
     public function update(UpdateOrderRequest $request, Order $order)
     {
-        //
+        $order->confirmed = $request->confirmed ?? 0;
+        $order->situation = $request->situation;
+        $order->save();
+
+        return redirect()->route('o-index');
     }
 
     /**

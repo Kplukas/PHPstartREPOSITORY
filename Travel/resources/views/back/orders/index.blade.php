@@ -25,6 +25,7 @@
                         @endif
                         @endforeach
                     </h2>
+                    <a class="btn btn-info" href="{{ route('o-edit', $order) }}">Edit</a>
                     @empty
                     <h2>No orders yet</h2>
                     @endforelse
