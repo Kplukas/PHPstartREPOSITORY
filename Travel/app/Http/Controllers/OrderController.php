@@ -18,6 +18,11 @@ class OrderController extends Controller
         $orders = Order::all();
         return View('back.orders.index', ['orders' => $orders]);
     }
+    public function index2()
+    {
+        $orders = Order::all();
+        return View('front.orders.index', ['orders' => $orders]);
+    }
 
     /**
      * Show the form for creating a new resource.
@@ -37,7 +42,12 @@ class OrderController extends Controller
      */
     public function store(StoreOrderRequest $request)
     {
-        //
+        $order = new Order;
+        $order->client_id = $request->client_id;
+        $order->hotel_id = $request->hotel_id;
+        $order->save();
+
+        return redirect()->route('o-index2');
     }
 
     /**

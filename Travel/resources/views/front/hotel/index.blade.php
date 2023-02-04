@@ -20,6 +20,12 @@
                             <p>{{$hotel->visit_start}}</p>
                             <p>{{$hotel->visit_end}}</p>
                             <p>{{$hotel->price}} Eur</p>
+                            <form action="{{route('o-store')}}" method="post">
+                                <input type="hidden" name="client_id" value="{{Auth::user()->id}}">
+                                <input type="hidden" name="hotel_id" value="{{$hotel->id}}">
+                                <button type="submit" class="btn btn-secondary">Add</button>
+                                @csrf
+                            </form>
                         </li>
                         @empty
                         <li class="list-group-item">

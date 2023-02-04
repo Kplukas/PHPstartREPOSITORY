@@ -26,8 +26,9 @@ Route::prefix('hotel')->name('h-')->group(function () {
 });
 Route::prefix('order')->name('o-')->group(function () {
     Route::get('/', [OC::class, 'index'] )->name('index')->middleware('roles:A');
-    Route::get('/create', [OC::class, 'create'] )->name('create')->middleware('roles:A');
-    Route::post('/create', [OC::class, 'store'] )->name('store')->middleware('roles:A');
+    Route::get('/list', [OC::class, 'index2'] )->name('index2')->middleware('roles:A|C');
+    Route::get('/create', [OC::class, 'create'] )->name('create')->middleware('roles:A|C');
+    Route::post('/create', [OC::class, 'store'] )->name('store')->middleware('roles:A|C');
     Route::get('/edit/{order}', [OC::class, 'edit'] )->name('edit')->middleware('roles:A');
     Route::put('/edit/{order}', [OC::class, 'update'] )->name('update')->middleware('roles:A');
     Route::delete('/delete/{order}', [OC::class, 'destroy'])->name('delete')->middleware('roles:A');
