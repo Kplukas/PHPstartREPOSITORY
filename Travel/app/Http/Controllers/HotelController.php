@@ -27,24 +27,45 @@ class HotelController extends Controller
     public function index2(Request $request)
     {
         if(!$request->filter || $request->filter == 'all') {
-            $hotels = Hotel::all();
-            $countries = Country::all();
-            return View('front.hotel.index', [
-                'hotels' => $hotels,
-                'countries' => $countries,
-                'request' => $request
-            ]);
-        }
-        $countries = Country::all();
-        foreach($countries as $country) {
-            if($request->filter == $country->id){
+            if(!$request->search){
+                $hotels = Hotel::all();
                 $countries = Country::all();
-                $hotels = Hotel::where('c_id', 'like', $country->id)->get();
                 return View('front.hotel.index', [
                     'hotels' => $hotels,
                     'countries' => $countries,
                     'request' => $request
                 ]);
+            } else {
+                $hotels = Hotel::where('name', 'like', $request->search)->get();
+                $countries = Country::all();
+                return View('front.hotel.index', [
+                    'hotels' => $hotels,
+                    'countries' => $countries,
+                    'request' => $request
+                ]);
+            }
+            
+        }
+        $countries = Country::all();
+        foreach($countries as $country) {
+            if($request->filter == $country->id){
+                if(!$request->search){
+                    $countries = Country::all();
+                    $hotels = Hotel::where('c_id', 'like', $country->id)->get();
+                    return View('front.hotel.index', [
+                        'hotels' => $hotels,
+                        'countries' => $countries,
+                        'request' => $request
+                    ]);
+                } else {
+                    $countries = Country::all();
+                    $hotels = Hotel::select()->where('c_id', 'like', $country->id)->where('name', 'like', '%'.$request->search.'%')->get();
+                    return View('front.hotel.index', [
+                        'hotels' => $hotels,
+                        'countries' => $countries,
+                        'request' => $request
+                    ]);
+                }
             }
         }
     }

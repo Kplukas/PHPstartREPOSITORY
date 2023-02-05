@@ -13,6 +13,7 @@
                         <option @if($request->filter == $country->id) selected @endif value="{{$country->id}}">{{$country->title}}</option>
                         @endforeach
                     </select>
+                    <input type="text" class="form-control col-5 mt-3" style="width: 50%; display:inline" name="search" value="{{$request->search ?? ''}}">
                     <button class="btn btn-secondary m-1" type="submit">Filter</button>
                 </form>
                 <div class="card-body">
