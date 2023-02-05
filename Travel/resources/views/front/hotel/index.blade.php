@@ -6,6 +6,15 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">Hotels</div>
+                <form class="card-header" action="{{route('h-index2')}}">
+                    <select class="form-select " aria-label="Default select example" name="filter">
+                        <option @if($request->filter == 'all') selected @endif value="all">All</option>
+                        @foreach($countries as $country)
+                        <option @if($request->filter == $country->id) selected @endif value="{{$country->id}}">{{$country->title}}</option>
+                        @endforeach
+                    </select>
+                    <button class="btn btn-secondary m-1" type="submit">Filter</button>
+                </form>
                 <div class="card-body">
                     <ul class="list-group list-group-flush">
                         @forelse($hotels as $hotel)

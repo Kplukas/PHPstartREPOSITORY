@@ -13,9 +13,26 @@
                 </div>
                 <div class="carousel-inner">
                     @foreach($hotels as $hotel)
-                    @if(!$hotel->photo)
+                    @if($hotel->id == 6)
+                    <div class="carousel-item active">
+                        <img src="{{asset($hotel->photo)}}" class="d-block w-100" alt="{{$hotel->name}}">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>{{$hotel->name}}</h5>
+                            <p>{{$hotel->price}} &euro; | From: {{$hotel->visit_start}} | To: {{$hotel->visit_end}}</p>
+                        </div>
+                    </div>
 
-                    @else
+                    @elseif($hotel->id == 7)
+                    <div class="carousel-item active">
+                        <img src="{{asset($hotel->photo)}}" class="d-block w-100" alt="{{$hotel->name}}">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>{{$hotel->name}}</h5>
+                            <p>{{$hotel->price}} &euro; | From: {{$hotel->visit_start}} | To: {{$hotel->visit_end}}</p>
+                        </div>
+                    </div>
+
+                    @elseif($hotel->id == 8)
+
                     <div class="carousel-item active">
                         <img src="{{asset($hotel->photo)}}" class="d-block w-100" alt="{{$hotel->name}}">
                         <div class="carousel-caption d-none d-md-block">

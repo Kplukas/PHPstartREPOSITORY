@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Hotel;
 use App\Models\Country;
+use Illuminate\Http\Request;
 use App\Http\Requests\StoreHotelRequest;
 use App\Http\Requests\UpdateHotelRequest;
 
@@ -23,14 +24,29 @@ class HotelController extends Controller
             'countries' => $countries
         ]);
     }
-    public function index2()
+    public function index2(Request $request)
     {
-        $hotels = Hotel::all();
+        if(!$request->filter || $request->filter == 'all') {
+            $hotels = Hotel::all();
+            $countries = Country::all();
+            return View('front.hotel.index', [
+                'hotels' => $hotels,
+                'countries' => $countries,
+                'request' => $request
+            ]);
+        }
         $countries = Country::all();
-        return View('front.hotel.index', [
-            'hotels' => $hotels,
-            'countries' => $countries
-        ]);
+        foreach($countries as $country) {
+            if($request->filter == $country->id){
+                $countries = Country::all();
+                $hotels = Hotel::where('c_id', 'like', $country->id)->get();
+                return View('front.hotel.index', [
+                    'hotels' => $hotels,
+                    'countries' => $countries,
+                    'request' => $request
+                ]);
+            }
+        }
     }
 
     /**
