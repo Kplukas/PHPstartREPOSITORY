@@ -18,7 +18,7 @@
 </head>
 <body style="background-image: url(https://wallpapercave.com/wp/wp5416565.jpg); background-size: cover">
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-dark bg-dark shadow-m">
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark shadow-m sticky-top nav-b">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/home') }}">
                     F

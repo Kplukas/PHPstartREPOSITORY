@@ -16,7 +16,7 @@
                         </div>
                         <form action="{{route('c-delete', $country)}}" method="post" class="boxer-form d-ib col-2 m-2">
                             <button type="submit" class="btn btn-danger col-12">
-                                Ištrinti
+                                Delete
                             </button>
                             @csrf
                             @method('delete')

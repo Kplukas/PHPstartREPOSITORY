@@ -5,11 +5,11 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">
+                <div class="card-header text-white bg-dark c-head">
                     Order edit and cofirmation
                 </div>
-                <div class="card-body">
-                    <form action="{{route('o-edit', $order)}}" method="post">
+                <div class="card-body list-group text-white bg-secondary">
+                    <form action="{{route('o-edit', $order)}}" method="post" class="col-10 ms-5 p-3">
                         <div class="mb-3">
                             <select name="situation" class="form-select">
                                 <option value="Awaiting confirmation">Awaiting confirmation</option>
@@ -24,7 +24,8 @@
                                 Confirm
                             </label>
                         </div>
-                        <button type="submit" class="btn btn-secondary">Save</button>
+                        <button type="submit" class="btn btn-dark col-3 mt-3">Save</button>
+
                         @csrf
                         @method('put')
                     </form>
