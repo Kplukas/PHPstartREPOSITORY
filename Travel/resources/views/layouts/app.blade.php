@@ -16,7 +16,7 @@
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 </head>
-<body style="background-image: url(https://t4.ftcdn.net/jpg/03/24/93/13/240_F_324931309_YBPIHI2SGw676Zkhf1yVTTzOs8C34p3S.jpg);">
+<body style="background-image: url(https://wallpapercave.com/wp/wp5416565.jpg); background-size: cover">
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-dark bg-dark shadow-m">
             <div class="container">

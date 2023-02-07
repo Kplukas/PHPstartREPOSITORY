@@ -5,34 +5,38 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Hotels</div>
-                <div class="card-body">
+                <div class="card-header text-white bg-dark c-head">Hotels</div>
+                <div class="card-body list-group text-white bg-secondary">
                     <ul class="list-group list-group-flush">
                         @forelse($hotels as $hotel)
-                        <li class="list-group-item">
-                            <h2> {{$hotel->name}},
+                        <li class="list-group-item bg-dark text-white m-3">
+                            <h2 class="c-name"> {{$hotel->name}},
                                 @foreach($countries as $country)
                                 @if ($country->id == $hotel->c_id)
                                 {{$country->title}}
                                 @endif
                                 @endforeach
                             </h2>
-                            <p>{{$hotel->visit_start}}</p>
-                            <p>{{$hotel->visit_end}}</p>
-                            <p>{{$hotel->price}} Eur</p>
-                            @if(!$hotel->photo)
-
-                            @else
-                            <img src="{{asset($hotel->photo)}}" class="img">
-                            @endif
-                            <form action="{{route('h-delete', $hotel)}}" method="post" class="boxer-form col-3">
-                                <a href="{{route('h-edit', $hotel)}}" class="btn btn-secondary">Edit</a>
-                                <button type="submit" class="btn btn-danger col-12">
-                                    Delete
-                                </button>
-                                @csrf
-                                @method('delete')
-                            </form>
+                            <div class="col-6 d-ib mt-3">
+                                <p>{{$hotel->visit_start}}</p>
+                                <p>{{$hotel->visit_end}}</p>
+                                <p>{{$hotel->price}} Eur</p>
+                                <form action="{{route('h-delete', $hotel)}}" method="post" class="boxer-form">
+                                    <a href="{{route('h-edit', $hotel)}}" class="btn btn-secondary col-5">Edit</a>
+                                    <button type="submit" class="btn btn-danger col-5 ms-1">
+                                        Delete
+                                    </button>
+                                    @csrf
+                                    @method('delete')
+                                </form>
+                            </div>
+                            <div class="col-6 d-ib">
+                                @if(!$hotel->photo)
+                                <img src="https://cdn-icons-png.flaticon.com/512/7985/7985827.png" class="h-img" alt="{{$hotel->name}}">
+                                @else
+                                <img src="{{asset($hotel->photo)}}" class="h-img">
+                                @endif
+                            </div>
                         </li>
                         @empty
                         <li class="list-group-item">
