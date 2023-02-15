@@ -10,6 +10,7 @@ use App\Models\Hotel;
 use App\Models\Country;
 use App\Http\Requests\StoreOrderRequest;
 use App\Http\Requests\UpdateOrderRequest;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class OrderController extends Controller
 {
@@ -117,5 +118,13 @@ class OrderController extends Controller
     public function destroy(Order $order)
     {
         //
+    }
+
+    public function pdf(Order $order)
+    {
+        $hotels = Hotel::all();
+        $pdf = Pdf::loadView('front.orders.pdf', ['order' => $order,
+    'hotels' => $hotels]);
+        return $pdf->download('hotel-o-'.$order->id.'.pdf');
     }
 }

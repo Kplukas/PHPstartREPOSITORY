@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CountryController as CC;
 use App\Http\Controllers\HotelController as HC;
 use App\Http\Controllers\OrderController as OC;
+use App\Http\Controllers\CodeController;
 
 
 Route::prefix('country')->name('c-')->group(function () {
@@ -32,7 +33,9 @@ Route::prefix('order')->name('o-')->group(function () {
     Route::get('/edit/{order}', [OC::class, 'edit'] )->name('edit')->middleware('roles:A');
     Route::put('/edit/{order}', [OC::class, 'update'] )->name('update')->middleware('roles:A');
     Route::delete('/delete/{order}', [OC::class, 'destroy'])->name('delete')->middleware('roles:A');
+    Route::get('/pdf/{order}', [OC::class, 'pdf'])->name('pdf')->middleware('roles:A|C');
 });
+Route::get('/generate-barcode', [CodeController::class, 'index'])->name('generate.barcode');
 
 /*
 Route::prefix('admin/bank')->name('bank-')->group(function () {

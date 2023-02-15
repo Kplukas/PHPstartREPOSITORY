@@ -17,6 +17,8 @@
                             @endforeach
                             @if($order->situation == 'Awaiting confirmation')
                             <span class="badge rounded-pill bg-secondary">{{$order->situation}}</span>
+                            @elseif($order->situation == 'Laukiama peržiūros')
+                            <span class="badge rounded-pill bg-secondary">Awaiting confirmation</span>
                             @elseif($order->situation == 'Cancelled')
                             <span class="badge rounded-pill bg-danger">{{$order->situation}}</span>
                             @elseif($order->situation == 'Reviewing')
@@ -38,6 +40,11 @@
                         <p>
                             Visit from {{$hotel->visit_start}} to {{$hotel->visit_end}}.
                         </p>
+                        @if($order->confirmed == true)
+                        <p>
+                            <a href="{{route('o-pdf', $order)}}" class="btn btn-secondary">Download pdf</a>
+                        </p>
+                        @endif
                     </div>
                     @endif
                     @endforeach
