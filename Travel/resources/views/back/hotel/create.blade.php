@@ -28,7 +28,7 @@
                             <label class="form-label c-name">Country</label>
                             <select name="cid" class="form-select">
                                 @foreach($country as $c)
-                                <option name="cid" value="{{$c->id}}">{{$c->title}}{{$c->id}}</option>
+                                <option name="cid" value="{{$c->id}}">{{$c->title}}</option>
                                 @endforeach
                             </select>
                         </div>
